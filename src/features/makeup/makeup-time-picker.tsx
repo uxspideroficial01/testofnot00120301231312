@@ -12,12 +12,12 @@ export function MakeupTimePicker() {
     session,
     booking,
     slot,
-    setSlot,
+    chooseSlot,
     preference,
-    setPreference,
+    changePreference,
     teacher,
-    setTeacher,
-    setError,
+    changeInstructor,
+    clearSlotFilters,
     eligible,
   } = useMakeupContext();
   return (
@@ -31,19 +31,13 @@ export function MakeupTimePicker() {
         <div className="segmented">
           <button
             className={preference === "family" ? "active" : ""}
-            onClick={() => {
-              setPreference("family");
-              setSlot(null);
-            }}
+            onClick={() => changePreference("family")}
           >
             Same day as siblings
           </button>
           <button
             className={preference === "all" ? "active" : ""}
-            onClick={() => {
-              setPreference("all");
-              setSlot(null);
-            }}
+            onClick={() => changePreference("all")}
           >
             All available times
           </button>
@@ -53,10 +47,7 @@ export function MakeupTimePicker() {
             <span>Instructor</span>
             <select
               value={teacher}
-              onChange={(e) => {
-                setTeacher(e.target.value);
-                setSlot(null);
-              }}
+              onChange={(e) => changeInstructor(e.target.value)}
             >
               <option>Any eligible instructor</option>
               {Array.from(
@@ -82,10 +73,7 @@ export function MakeupTimePicker() {
               aria-checked={slot?.id === s.id}
               key={s.id}
               className={`slot-option ${slot?.id === s.id ? "chosen" : ""}`}
-              onClick={() => {
-                setSlot(s);
-                setError("");
-              }}
+              onClick={() => chooseSlot(s.id)}
             >
               <span className="radio-indicator">
                 {slot?.id === s.id && <span />}
@@ -134,13 +122,7 @@ export function MakeupTimePicker() {
               <CalendarDays size={25} />
               <strong>No matching times</strong>
               <p>Try another instructor or see all available times.</p>
-              <button
-                className="btn"
-                onClick={() => {
-                  setPreference("all");
-                  setTeacher("Any eligible instructor");
-                }}
-              >
+              <button className="btn" onClick={clearSlotFilters}>
                 Clear filters
               </button>
             </div>

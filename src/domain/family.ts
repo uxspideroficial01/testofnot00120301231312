@@ -1,8 +1,15 @@
+export type FamilyMemberTone = "purple" | "blue" | "pink";
+
 export interface Family {
   id: string;
   name: string;
   guardian: { name: string; email: string };
-  members: { id: string; name: string; service: string; tone: string }[];
+  members: {
+    id: string;
+    name: string;
+    service: string;
+    tone: FamilyMemberTone;
+  }[];
 }
 
 export function matchesFamily(family: Family, query: string): boolean {

@@ -1,9 +1,12 @@
+import type { OfficialSession } from "@/domain/official";
+
 export type ProfileKind = "member" | "staff";
 export type PersonProfileProps = {
   kind: ProfileKind;
   name?: string;
   onBack: () => void;
-  onOpenSession?: (title: string) => void;
+  sessions: readonly OfficialSession[];
+  onOpenSession?: (sessionId: string) => void;
 };
 export type AvailabilityRange = {
   start: string;

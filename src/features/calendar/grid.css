@@ -7,7 +7,7 @@
 .calendar-header {
   height: 50px;
   min-height: 50px;
-  padding: 0 16px;
+  padding: 0 13px 0 16px;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -167,6 +167,12 @@
 .hour-line {
   height: 100px;
   border-bottom: 1px solid #e5e5e5;
+}
+.available-column {
+  background: linear-gradient(to right, #fff 0, #fff 104px, #f7f7f7 104px);
+}
+.available-column .hour-line {
+  margin-left: 104px;
 }
 .now-line {
   position: absolute;

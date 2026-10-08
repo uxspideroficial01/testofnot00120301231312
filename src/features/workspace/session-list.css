@@ -17,6 +17,14 @@
 .header-actions .search-field {
   width: 288px;
 }
+.header-actions > .btn:nth-last-child(2) {
+  width: 66px;
+}
+.header-actions > .btn-primary {
+  width: 146px;
+  gap: 4px;
+  padding: 6px;
+}
 .date-range {
   min-width: 300px;
   justify-content: flex-start;
@@ -51,6 +59,27 @@
 }
 .filter-anchor {
   position: relative;
+}
+.table-toolbar .filter-anchor > .btn {
+  width: 72px;
+}
+.sort-button {
+  padding: 0;
+  gap: 0;
+  width: 150px;
+}
+.sort-button > svg {
+  width: 33px;
+  height: 30px;
+  padding: 8px;
+  border-right: 1px solid var(--line);
+}
+.sort-button > span {
+  padding: 6px 9px;
+}
+.sort-button strong {
+  margin-left: 4px;
+  font-weight: 500;
 }
 .filter-popover {
   position: absolute;
@@ -148,9 +177,14 @@
   text-decoration: underline;
 }
 .pending-dot {
-  fill: #757e8b;
+  fill: #6b7280;
   color: #fff;
   stroke-width: 2.3;
+}
+.occurred-dot {
+  fill: #00c950;
+  color: #fff;
+  stroke-width: 2;
 }
 .cancelled-dot {
   fill: #e2b72a;

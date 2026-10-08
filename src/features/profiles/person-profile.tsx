@@ -14,6 +14,8 @@ import { Documents } from "./components/documents";
 import { Activity } from "./components/activity";
 import { Availability } from "./components/availability";
 import { SessionCards } from "./components/session-cards";
+import { getDemoProfileSessionReferences } from "@/demo/profile-session-links";
+import { resolveProfileSessionLinks } from "./session-links";
 
 export function PersonProfile(props: PersonProfileProps) {
   // Unsaved demo state belongs to one person, never the next opened profile.
@@ -30,6 +32,7 @@ function ProfileScreen({
   name: providedName,
   onBack,
   onOpenSession,
+  sessions,
 }: PersonProfileProps) {
   const name =
     providedName ??
@@ -43,6 +46,7 @@ function ProfileScreen({
   const [search, setSearch] = useState("");
   const [noteFilter, setNoteFilter] = useState("all");
   const isStaff = kind === "staff";
+  const references = getDemoProfileSessionReferences(kind, name);
   return (
     <div
       className={`person-profile ${isStaff ? "pp-staff-profile" : "pp-member-profile"}`}
@@ -81,6 +85,8 @@ function ProfileScreen({
             name={name}
             onAction={setAction}
             onOpenSession={onOpenSession}
+            sessions={sessions}
+            sessionReferences={references.enrollments}
           />
           <div className="pp-tabs" role="tablist" aria-label="Profile sections">
             {(isStaff ? STAFF_TABS : MEMBER_TABS).map((item) => (
@@ -112,6 +118,8 @@ function ProfileScreen({
                 kind={kind}
                 name={name}
                 onOpenSession={onOpenSession}
+                sessions={sessions}
+                sessionReferences={references.attendance}
               />
             </div>
             {!isStaff && (
@@ -177,6 +185,10 @@ function ProfileScreen({
               <SessionCards
                 past={tab === "Past"}
                 onOpenSession={onOpenSession}
+                sessions={resolveProfileSessionLinks(
+                  sessions,
+                  tab === "Past" ? references.past : references.upcoming,
+                )}
               />
             )}
           </div>

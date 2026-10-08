@@ -1,33 +1,23 @@
 "use client";
 import { Overlay } from "@/components/ui";
-import { issueMakeup } from "@/domain/makeup";
 
 import { useMakeupContext } from "./makeup-context";
 
 export function IssueMakeupDialog() {
   const {
-    session,
-    booking,
-    onBooking,
-    setIssuing,
+    cancelIssuance,
     makeupName,
-    setMakeupName,
+    renameMakeup,
     issueError,
-    setIssueError,
+    submitIssuance,
   } = useMakeupContext();
   return (
-    <Overlay title="Issue Makeup" onClose={() => setIssuing(false)} modal>
+    <Overlay title="Issue Makeup" onClose={cancelIssuance} modal>
       <form
         className="makeup-issue-form"
         onSubmit={(event) => {
           event.preventDefault();
-          const result = issueMakeup(booking, session.id, makeupName);
-          if (!result.ok) {
-            setIssueError(result.reason);
-            return;
-          }
-          onBooking(result.state);
-          setIssuing(false);
+          submitIssuance();
         }}
       >
         <label htmlFor="makeup-name">Makeup name</label>
@@ -35,7 +25,7 @@ export function IssueMakeupDialog() {
           id="makeup-name"
           value={makeupName}
           required
-          onChange={(event) => setMakeupName(event.target.value)}
+          onChange={(event) => renameMakeup(event.target.value)}
           onFocus={(event) => event.target.select()}
           autoFocus
         />

@@ -147,8 +147,11 @@ const CHILD_NAMES = [
   "Owen",
   "Ruby",
 ];
-const SERVICES = ["Piano", "Guitar", "Voice"];
-const TONES = ["purple", "blue", "pink"];
+const LESSON_PRESETS = [
+  { service: "Piano", tone: "purple" },
+  { service: "Guitar", tone: "blue" },
+  { service: "Voice", tone: "pink" },
+] as const;
 
 const GENERATED_FAMILIES: Family[] = SURNAMES.flatMap((surname, surnameIndex) =>
   GUARDIAN_NAMES.map((guardianName, guardianIndex) => {
@@ -162,12 +165,13 @@ const GENERATED_FAMILIES: Family[] = SURNAMES.flatMap((surname, surnameIndex) =>
         name: `${guardianName} ${surname}`,
         email: `household.${number}@example.com`,
       },
-      members: Array.from({ length: 2 + (index % 2) }, (_, childIndex) => ({
-        id: `${id}-child-${childIndex + 1}`,
-        name: `${CHILD_NAMES[(index * 3 + childIndex) % CHILD_NAMES.length]} ${surname}`,
-        service: SERVICES[childIndex],
-        tone: TONES[childIndex],
-      })),
+      members: LESSON_PRESETS.slice(0, 2 + (index % 2)).map(
+        (lesson, childIndex) => ({
+          id: `${id}-child-${childIndex + 1}`,
+          name: `${CHILD_NAMES[(index * 3 + childIndex) % CHILD_NAMES.length]} ${surname}`,
+          ...lesson,
+        }),
+      ),
     };
   }),
 );

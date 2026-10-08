@@ -38,19 +38,31 @@ export const STAFF_TAB_COUNTS: Record<string, string> = {
   Past: "196",
 };
 
-export function enrollmentTitles(kind: ProfileKind, name: string) {
+export function enrollmentRows(kind: ProfileKind, name: string) {
   return kind === "staff"
     ? [
-        "Aaron Schwartz - Cory's Private solidcore Class",
-        "Cory's Summer Camp: Week 4 - AJ Ding",
-        "Andrii private class",
-        "Cory's Private Clarinet Lesson",
+        {
+          id: "staff-solidcore",
+          title: "Aaron Schwartz - Cory's Private solidcore Class",
+        },
+        { id: "staff-camp", title: "Cory's Summer Camp: Week 4 - AJ Ding" },
+        { id: "staff-private", title: "Andrii private class" },
+        { id: "staff-clarinet", title: "Cory's Private Clarinet Lesson" },
       ]
     : [
-        `${name} - Introduction to Oneiromancy`,
-        `${name} - Introduction to Oneiromancy`,
-        `${name} - coding class`,
-        `${name} - Introduction to Oneiromancy`,
+        {
+          id: "member-oneiromancy-primary",
+          title: `${name} - Introduction to Oneiromancy`,
+        },
+        {
+          id: "member-oneiromancy-secondary",
+          title: `${name} - Introduction to Oneiromancy`,
+        },
+        { id: "member-coding", title: `${name} - coding class` },
+        {
+          id: "member-oneiromancy-third",
+          title: `${name} - Introduction to Oneiromancy`,
+        },
       ];
 }
 
@@ -66,19 +78,48 @@ export const DEMO_INVOICE_DATES = [
 export function attendanceRows(kind: ProfileKind, name: string) {
   return kind === "member"
     ? [
-        [`${name} - coding class`, "Sep 10, 2025 to Jun 16, 2027"],
-        [
-          `${name} - Introduction to Oneiromancy`,
-          "Aug 25, 2025 to Aug 26, 2027",
-        ],
+        {
+          id: "member-coding",
+          title: `${name} - coding class`,
+          dates: "Sep 10, 2025 to Jun 16, 2027",
+        },
+        {
+          id: "member-oneiromancy",
+          title: `${name} - Introduction to Oneiromancy`,
+          dates: "Aug 25, 2025 to Aug 26, 2027",
+        },
       ]
     : [
-        ["Andrii private class", "Mar 17 to Mar 17, 2026"],
-        ["damian testing event", "Feb 20 to Apr 28, 2025"],
-        ["Cory's solidcore Class", "Apr 23, 2025 to Jun 14, 2027"],
-        ["Cory's Private solidcore Class", "Sep 10, 2025 to Jun 16, 2027"],
-        ["Cory's Private Clarinet Lesson", "Jan 5 to Jan 6, 2026"],
-        ["Cory's barry's class", "Apr 2, 2025 to Jun 14, 2027"],
+        {
+          id: "staff-private",
+          title: "Andrii private class",
+          dates: "Mar 17 to Mar 17, 2026",
+        },
+        {
+          id: "staff-test",
+          title: "damian testing event",
+          dates: "Feb 20 to Apr 28, 2025",
+        },
+        {
+          id: "staff-solidcore",
+          title: "Cory's solidcore Class",
+          dates: "Apr 23, 2025 to Jun 14, 2027",
+        },
+        {
+          id: "staff-private-solidcore",
+          title: "Cory's Private solidcore Class",
+          dates: "Sep 10, 2025 to Jun 16, 2027",
+        },
+        {
+          id: "staff-clarinet",
+          title: "Cory's Private Clarinet Lesson",
+          dates: "Jan 5 to Jan 6, 2026",
+        },
+        {
+          id: "staff-barry",
+          title: "Cory's barry's class",
+          dates: "Apr 2, 2025 to Jun 14, 2027",
+        },
       ];
 }
 

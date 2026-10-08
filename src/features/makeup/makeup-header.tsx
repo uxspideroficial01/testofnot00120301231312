@@ -4,7 +4,7 @@ import { ArrowLeft, MoreHorizontal } from "lucide-react";
 import { useMakeupContext } from "./makeup-context";
 
 export function MakeupHeader() {
-  const { stage, setStage, activity, setActivity, headingRef, title } =
+  const { stage, goBack, toggleActivity, headingRef, title } =
     useMakeupContext();
   return (
     <header className="session-heading">
@@ -15,20 +15,22 @@ export function MakeupHeader() {
           <button
             className="icon-button borderless"
             aria-label="Session actions"
-            onClick={() => setActivity(!activity)}
+            onClick={toggleActivity}
           >
             <MoreHorizontal size={18} />
           </button>
         </>
       ) : (
         <>
-          <button
-            className="icon-button borderless"
-            aria-label="Go back"
-            onClick={() => setStage(stage === "review" ? "slots" : "detail")}
-          >
-            <ArrowLeft size={18} />
-          </button>
+          {stage !== "success" && (
+            <button
+              className="icon-button borderless"
+              aria-label="Go back"
+              onClick={goBack}
+            >
+              <ArrowLeft size={18} />
+            </button>
+          )}
           <h2 ref={headingRef} tabIndex={-1}>
             {stage === "success" ? "Makeup scheduled" : "Schedule makeup"}
           </h2>

@@ -33,6 +33,13 @@
   margin-left: 4px;
   color: var(--muted);
 }
+.staff-section > .filter-section-heading input:checked {
+  background: #fff;
+  border-color: var(--line);
+}
+.staff-section > .filter-section-heading input:checked:after {
+  border-color: var(--text);
+}
 .staff-filter-content {
   padding: 4px 16px 0;
   display: flex;
@@ -95,7 +102,28 @@
 .staff-list label .avatar {
   margin-left: 0;
 }
+.staff-list .avatar {
+  width: 20px;
+  height: 20px;
+  color: #425cc5;
+}
+.staff-list .avatar.purple {
+  background: #e5e7ff;
+}
+.staff-list .avatar.blue {
+  background: #dcf1ff;
+}
+.staff-list .avatar.gray {
+  background: #e0e2ff;
+}
+.staff-list .avatar.cyan {
+  background: #ecfcff;
+}
+.staff-list .avatar.orange {
+  background: #fff3e8;
+}
 .staff-list label > span:not(.avatar) {
+  margin-left: -4px;
   overflow: hidden;
   text-overflow: ellipsis;
 }

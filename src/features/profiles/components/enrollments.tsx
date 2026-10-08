@@ -2,24 +2,31 @@ import { useState } from "react";
 import { Plus } from "lucide-react";
 import type { ProfileKind } from "../types";
 import { ProfileMenu, Status } from "./profile-controls";
-import { enrollmentTitles } from "../demo-fixtures";
+import { enrollmentRows } from "../demo-fixtures";
+import type { OfficialSession } from "@/domain/official";
+import { DEMO_PROFILE_DATE } from "@/demo/profile-session-links";
+import { resolveProfileSessionLinks } from "../session-links";
 
 export function Enrollments({
   kind,
   name,
   onAction,
   onOpenSession,
+  sessions,
+  sessionReferences,
 }: {
   kind: ProfileKind;
   name: string;
   onAction: (text: string) => void;
-  onOpenSession?: (title: string) => void;
+  onOpenSession?: (sessionId: string) => void;
+  sessions: readonly OfficialSession[];
+  sessionReferences: Readonly<Record<string, readonly string[]>>;
 }) {
   const [expanded, setExpanded] = useState(false);
-  const [inactive, setInactive] = useState<number[]>([]);
-  const [deleted, setDeleted] = useState<number[]>([]);
+  const [inactive, setInactive] = useState<string[]>([]);
+  const [deleted, setDeleted] = useState<string[]>([]);
   const staff = kind === "staff";
-  const titles = enrollmentTitles(kind, name);
+  const rows = enrollmentRows(kind, name);
   return (
     <section className={`pp-enrollments ${staff ? "staff" : ""}`}>
       <div className="pp-section-heading">
@@ -37,9 +44,19 @@ export function Enrollments({
         )}
       </div>
       <div className="pp-enrollment-grid">
-        {titles.slice(0, expanded ? 4 : 2).map((title, i) =>
-          deleted.includes(i) ? null : (
-            <article className="pp-enrollment" key={i}>
+        {rows.slice(0, expanded ? 4 : 2).map(({ id, title }, i) => {
+          const links = resolveProfileSessionLinks(
+            sessions,
+            sessionReferences[id] ?? [],
+          );
+          const upcoming = links
+            .filter((link) => link.dateKey >= DEMO_PROFILE_DATE)
+            .slice(0, 3);
+          const lastAttended = links
+            .filter((link) => link.dateKey < DEMO_PROFILE_DATE)
+            .at(-1);
+          return deleted.includes(id) ? null : (
+            <article className="pp-enrollment" key={id}>
               <div className="pp-enrollment-heading">
                 <button
                   className="pp-enrollment-title pp-plain"
@@ -47,7 +64,7 @@ export function Enrollments({
                 >
                   {title}
                 </button>
-                <Status>{inactive.includes(i) ? "Inactive" : "Active"}</Status>
+                <Status>{inactive.includes(id) ? "Inactive" : "Active"}</Status>
                 <ProfileMenu
                   label={`Enrollment actions ${i + 1}`}
                   items={[
@@ -56,19 +73,19 @@ export function Enrollments({
                       action: () => onAction("Edit enrollment"),
                     },
                     {
-                      label: inactive.includes(i)
+                      label: inactive.includes(id)
                         ? "Activate enrollment"
                         : "Deactivate enrollment",
                       action: () =>
                         setInactive((current) =>
-                          current.includes(i)
-                            ? current.filter((index) => index !== i)
-                            : [...current, i],
+                          current.includes(id)
+                            ? current.filter((currentId) => currentId !== id)
+                            : [...current, id],
                         ),
                     },
                     {
                       label: "Delete enrollment",
-                      action: () => setDeleted((current) => [...current, i]),
+                      action: () => setDeleted((current) => [...current, id]),
                     },
                   ]}
                 />
@@ -83,16 +100,16 @@ export function Enrollments({
               >
                 <div className="pp-last-attended">
                   <span>Last attended</span>
-                  {!staff && i === 0 ? (
+                  {lastAttended ? (
                     <>
                       <button
                         className="pp-day pp-faded"
-                        onClick={() => onOpenSession?.(title)}
+                        onClick={() => onOpenSession?.(lastAttended.id)}
                       >
-                        <small>Wed</small>
-                        <b>Jan 14</b>
+                        <small>{lastAttended.weekday}</small>
+                        <b>{lastAttended.shortDate}</b>
                       </button>
-                      <small>4:46 PM</small>
+                      <small>{lastAttended.startTime}</small>
                     </>
                   ) : (
                     <div className="pp-dash">—</div>
@@ -100,22 +117,18 @@ export function Enrollments({
                 </div>
                 <div className="pp-upcoming">
                   <span>Upcoming</span>
-                  {!staff && i === 0 ? (
+                  {upcoming.length > 0 ? (
                     <div className="pp-days">
-                      {[
-                        ["Thu", "Oct 8"],
-                        ["Fri", "Oct 9"],
-                        ["Mon", "Oct 12"],
-                      ].map(([day, date]) => (
-                        <div key={date}>
+                      {upcoming.map((link) => (
+                        <div key={link.id}>
                           <button
                             className="pp-day"
-                            onClick={() => onOpenSession?.(title)}
+                            onClick={() => onOpenSession?.(link.id)}
                           >
-                            <small>{day}</small>
-                            <b>{date}</b>
+                            <small>{link.weekday}</small>
+                            <b>{link.shortDate}</b>
                           </button>
-                          <small>4:46 PM</small>
+                          <small>{link.startTime}</small>
                         </div>
                       ))}
                     </div>
@@ -125,8 +138,8 @@ export function Enrollments({
                 </div>
               </div>
             </article>
-          ),
-        )}
+          );
+        })}
       </div>
       <button className="pp-link" onClick={() => setExpanded(!expanded)}>
         {expanded

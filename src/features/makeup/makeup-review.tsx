@@ -10,10 +10,10 @@ export function MakeupReview() {
     family,
     session,
     booking,
-    setStage,
+    goBack,
     slot,
     notify,
-    setNotify,
+    changeNotification,
     issuance,
   } = useMakeupContext();
   return (
@@ -31,7 +31,7 @@ export function MakeupReview() {
               {slot && `${timeLabel(slot.start)} – ${timeLabel(slot.end)} EDT`}
             </span>
           </div>
-          <button className="text-button" onClick={() => setStage("slots")}>
+          <button className="text-button" onClick={goBack}>
             Change
           </button>
         </div>
@@ -66,7 +66,7 @@ export function MakeupReview() {
           <input
             type="checkbox"
             checked={notify}
-            onChange={(e) => setNotify(e.target.checked)}
+            onChange={(e) => changeNotification(e.target.checked)}
           />
           <div>
             <strong>Prepare confirmation for {family.guardian.name}</strong>

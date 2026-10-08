@@ -16,19 +16,20 @@ export function SessionDetails() {
   const {
     family,
     session,
-    setStage,
-    setIssuing,
-    setIssueError,
+    startScheduling,
+    requestIssuance,
     note,
-    setNote,
+    editNote,
     notesOpen,
-    setNotesOpen,
+    toggleNotes,
     shared,
-    setShared,
+    openPrivateNotes,
+    openSharedNotes,
     activity,
-    setActivity,
+    toggleActivity,
     status,
-    setStatus,
+    markPresent,
+    toggleAttendance,
     issuance,
     existing,
     isFamily,
@@ -63,7 +64,7 @@ export function SessionDetails() {
               {session.attendance ?? "No show"}
             </span>
           ) : (
-            <button className="btn" onClick={() => setStatus("Present")}>
+            <button className="btn" onClick={markPresent}>
               <CheckCircle2 size={15} />
               Mark all present
             </button>
@@ -72,20 +73,14 @@ export function SessionDetails() {
         <div className="roster-person">
           <Avatar name={session.studentName} />
           <strong>{session.studentName}</strong>
-          <button
-            className="status-button"
-            onClick={() =>
-              session.status !== "missed" &&
-              setStatus(status === "Present" ? "Pending" : "Present")
-            }
-          >
+          <button className="status-button" onClick={toggleAttendance}>
             <CircleMinus size={15} />
             {status}
           </button>
           <button
             className="icon-button borderless"
             aria-label="Student options"
-            onClick={() => setNotesOpen(!notesOpen)}
+            onClick={toggleNotes}
           >
             <MoreHorizontal size={17} />
           </button>
@@ -124,21 +119,12 @@ export function SessionDetails() {
                   : "A makeup will be issued when you confirm the new lesson."}
               </p>
               <div className="makeup-detail-actions">
-                <button
-                  className="btn btn-primary"
-                  onClick={() => setStage("slots")}
-                >
+                <button className="btn btn-primary" onClick={startScheduling}>
                   <CalendarDays size={15} />
                   Schedule makeup
                 </button>
                 {!issuance && (
-                  <button
-                    className="btn"
-                    onClick={() => {
-                      setIssueError("");
-                      setIssuing(true);
-                    }}
-                  >
+                  <button className="btn" onClick={requestIssuance}>
                     Issue Makeup
                   </button>
                 )}
@@ -171,16 +157,13 @@ export function SessionDetails() {
       <section className="detail-section">
         <div className="section-label-row">
           <span className="muted">Class notes</span>
-          <button className="btn" onClick={() => setNotesOpen(!notesOpen)}>
+          <button className="btn" onClick={toggleNotes}>
             Mark for review
           </button>
         </div>
         <button
           className={`btn btn-small ${!shared ? "selected" : ""}`}
-          onClick={() => {
-            setShared(false);
-            setNotesOpen(true);
-          }}
+          onClick={openPrivateNotes}
         >
           Private notes
         </button>
@@ -194,16 +177,13 @@ export function SessionDetails() {
                   : "Add a private note..."
               }
               value={note}
-              onChange={(e) => setNote(e.target.value)}
+              onChange={(e) => editNote(e.target.value)}
             />
           )}
         </div>
         <button
           className={`btn btn-small ${shared ? "selected" : ""}`}
-          onClick={() => {
-            setShared(true);
-            setNotesOpen(true);
-          }}
+          onClick={openSharedNotes}
         >
           Shared notes
         </button>
@@ -213,10 +193,7 @@ export function SessionDetails() {
         <p className="muted">No notes</p>
       </section>
       <section className="detail-section">
-        <button
-          className="full-row-button"
-          onClick={() => setActivity(!activity)}
-        >
+        <button className="full-row-button" onClick={toggleActivity}>
           Activity
           <ChevronDown size={15} />
         </button>

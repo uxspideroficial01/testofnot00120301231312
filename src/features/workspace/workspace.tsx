@@ -1,6 +1,6 @@
 "use client";
 
-import { CalendarView } from "@/components/calendar-view";
+import { CalendarView } from "@/features/calendar/calendar-view";
 import { SecondaryView } from "@/components/secondary-views";
 import { SessionPanel } from "@/features/makeup/session-panel";
 import { ScheduleModal } from "@/features/makeup/schedule-modal";
@@ -29,7 +29,8 @@ export function Workspace(props: WorkspaceProps) {
             onBack={() =>
               workspace.navigate(person.kind === "member" ? "Members" : "Staff")
             }
-            onOpenSession={workspace.openSessionByTitle}
+            sessions={workspace.officialSessions}
+            onOpenSession={workspace.openOfficialSession}
           />
         ) : view === "Calendar" ? (
           <CalendarView
@@ -37,7 +38,7 @@ export function Workspace(props: WorkspaceProps) {
             onOpenSession={workspace.setSelected}
             onSchedule={() => workspace.setSchedule(true)}
             officialSessions={workspace.officialSessions}
-            onOpenOfficialSession={workspace.setOfficialId}
+            onOpenOfficialSession={workspace.openOfficialSession}
             onOpenStaff={(name) => workspace.openPerson("staff", name)}
           />
         ) : view === "Sessions" ? (
@@ -51,7 +52,7 @@ export function Workspace(props: WorkspaceProps) {
             onSchedule={() => workspace.setSchedule(true)}
             onOpen={(row) =>
               row.source.kind === "official"
-                ? workspace.setOfficialId(row.id)
+                ? workspace.openOfficialSession(row.id)
                 : workspace.setSelected(row.source.session)
             }
           />

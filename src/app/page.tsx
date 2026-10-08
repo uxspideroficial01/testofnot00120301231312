@@ -1,4 +1,4 @@
-import { Workspace } from "@/components/workspace";
+import { Workspace } from "@/features/workspace/workspace";
 import { parseWorkspaceParams } from "@/features/workspace/route-params";
 export default async function Page({
   searchParams,

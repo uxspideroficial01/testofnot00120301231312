@@ -11,7 +11,7 @@ The architecture separates the reference reconstruction from the proposed admini
 ```text
 src/
   app/                  Next.js page, layout and global visual tokens
-  components/           Compatibility entry points and common UI primitives
+  components/           Common UI primitives and supporting-view composition
   demo/                 Synthetic family and booking scenario
   domain/               Booking, availability, attendance and family rules
   features/
@@ -31,7 +31,7 @@ src/
   shared/lib/           Small cross-feature utilities
 ```
 
-Feature styles retain the reference selectors and are split by UI responsibility. The compatibility CSS entry points preserve their loading order. Feature fixtures are colocated with the feature that owns them; `src/demo` holds the cross-feature family scenario. The recorded session model and its reference fixtures currently share `src/domain/official.ts`.
+Feature styles retain the reference selectors and are split by UI responsibility. Shell, table and calendar refinements live with their owning feature instead of a global override file. CSS entry points preserve loading order. Feature fixtures are colocated with the feature that owns them; `src/demo` holds cross-feature family and reference-session data. `src/domain/official.ts` contains session contracts and pure helpers, with no fixture records.
 
 ## Dependency direction
 
@@ -41,6 +41,8 @@ Feature styles retain the reference selectors and are split by UI responsibility
 - Domain functions operate on plain typed values and do not depend on React, the DOM or network services.
 - Shared utilities handle narrow browser concerns such as local downloads. They do not own booking rules.
 
+ESLint rejects imports from demonstration data, features, UI components, React and Next.js in production domain modules. Domain tests may import fixtures. This keeps the pure rules reusable by a future server without pulling the UI or sample records into it.
+
 When adding behavior, put its invariant at the narrowest boundary that can enforce it. For example, roster capacity is checked when submitting enrollment, not only by hiding an option in the picker. Avoid importing an entire workspace into a leaf component to access one rule.
 
 ## State ownership
@@ -49,9 +51,11 @@ Session filtering stores a validated family ID at workspace level. The anchored 
 
 `useWorkspace` owns the selected view, open record, reference session collection and proposed booking state. The two session collections support different demonstration paths; they are not two synchronized backend representations.
 
-The makeup hook coordinates the origin, time selection, review and success stages. The domain returns a result union; the UI commits returned state only on success and displays the failure reason otherwise.
+The makeup controller owns booking commands and exposes user intentions to view components. A typed reducer controls the detail, time selection, review and success stages; changing selection constraints clears the selected time. Review and success carry the data required by those stages. The domain returns a result union; the controller commits returned state only on success and displays the failure reason otherwise. Ancillary notes and attendance presentation are separate from the booking transition state.
 
-Reference session edits are reported to workspace state through callbacks. Profile-specific drafts and supporting views own their own local state. CRM draft notes and editable contact fields are keyed by stable lead IDs, so contacts with the same display name do not share edits.
+Session navigation passes occurrence IDs through calendar, table and profile callbacks. Profile references resolve against current records; edited dates and titles update the link without changing identity. Archived or missing IDs never fall back to a title match.
+
+Reference session edits are reported to workspace state through callbacks. Profile-specific drafts and supporting views own their own local state. Private and shared note editors have separate buffers. CRM draft notes and editable contact fields are keyed by stable lead IDs, so contacts with the same display name do not share edits.
 
 No state is written to browser storage or a server. Reload resets the application. A feature unmount can also discard its local drafts; tab-local preservation should not be confused with durable persistence.
 
@@ -86,5 +90,7 @@ These are tested local invariants, not verified Noto policies and not a database
 ## Verification boundaries
 
 TypeScript checks contracts. ESLint and Prettier check configured code conventions. Node tests exercise domain and validation behavior. A Next.js production build verifies the deployable application bundle. Browser review checks the visual states and interaction sequences represented in the demonstration.
+
+Playwright tests run against that production build, using isolated browser contexts and a dedicated local server port. They verify the main family-filter and makeup journey through accessible controls, including cancellation, selected-household isolation, unchanged sibling lessons and preventing a second booking from the original lesson. Failure traces and screenshots support diagnosis; they are not committed to the source repository.
 
 None of those individually proves the others. A future persisted implementation needs server-side authorization, transactional writes and constraints, integration tests, and validation against agreed requirements before it can handle customer data.

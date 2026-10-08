@@ -4,8 +4,15 @@ import { ArrowRight, Check } from "lucide-react";
 import { useMakeupContext } from "./makeup-context";
 
 export function MakeupFooter() {
-  const { onClose, stage, setStage, slot, issuance, confirm } =
-    useMakeupContext();
+  const {
+    onClose,
+    stage,
+    goBack,
+    slot,
+    issuance,
+    reviewBooking,
+    confirmBooking,
+  } = useMakeupContext();
   return (
     <footer className="drawer-footer">
       {stage === "success" ? (
@@ -18,16 +25,13 @@ export function MakeupFooter() {
         </>
       ) : (
         <>
-          <button
-            className="btn"
-            onClick={() => setStage(stage === "review" ? "slots" : "detail")}
-          >
+          <button className="btn" onClick={goBack}>
             Back
           </button>
           <button
             className="btn btn-primary"
             disabled={!slot}
-            onClick={() => (stage === "slots" ? setStage("review") : confirm())}
+            onClick={stage === "slots" ? reviewBooking : confirmBooking}
           >
             {stage === "slots"
               ? "Review makeup"

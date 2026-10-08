@@ -40,3 +40,16 @@ The follow-up adds Family to the reference Filter menu and exercises a directory
 Browser checks covered paginated results, no matches, guardian-email and child-name searches, homonymous families, keyboard selection, Escape without committing a draft, applying another family and reloading its canonical URL. Combining Family with Status: Cancelled showed only the selected family's cancelled lesson. Issuance and scheduling then reached success with no browser console errors.
 
 Search and row isolation are tested separately from React rendering. This proves the seeded local demonstration; it does not measure database search latency or introduce a server integration.
+
+## Architecture hardening
+
+The current source separates reference-session fixtures from domain contracts, uses exact occurrence IDs for navigation, and controls makeup stages through a typed transition reducer. Private and shared notes have independent buffers. Feature-owned CSS replaces the global refinement overrides; five compatibility re-export modules were removed.
+
+- 73 Node tests pass, including new occurrence-identity and guarded-transition regressions.
+- ESLint, formatting, TypeScript and the production build pass.
+- Five Playwright journeys pass against the production build: exact recurring occurrence navigation, cancelling/applying family selection, paginated keyboard search, private/shared note isolation, and the full makeup confirmation with unchanged sibling lessons and no duplicate booking.
+- Computed-style comparison before and after CSS consolidation reports no differences for Sessions and Calendar at widths of 1437, 1000 and 700 CSS pixels.
+
+The browser suite uses the full Chromium channel. The standalone headless-shell bundle failed to initialize its ICU data on the local macOS host; no application assertion was bypassed to work around that infrastructure failure.
+
+These changes strengthen the existing frontend architecture. They do not add PostgreSQL, authentication, authorization, durable notes or server-side booking transactions.

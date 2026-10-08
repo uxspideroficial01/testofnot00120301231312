@@ -67,7 +67,7 @@ Supporting views include Scheduling Links, Forms, Tasks, Email, Text & Voice, Em
 
 ## Code and verification
 
-Feature components, state hooks, fixtures and styles are colocated under `src/features`. Pure booking rules live under `src/domain`; the synthetic family scenario is under `src/demo`. Small compatibility modules in `src/components` keep the application entry points stable.
+Feature components, state hooks and styles are colocated under `src/features`. Pure booking rules and data contracts live under `src/domain`; cross-feature demonstration data lives under `src/demo`. Feature entry points are imported directly. `src/components` holds shared controls and supporting-view composition.
 
 Read [ARCHITECTURE.md](ARCHITECTURE.md) for state ownership, dependency boundaries and booking invariants. Read [SECURITY.md](SECURITY.md) for the demonstration's security model and limitations.
 
@@ -75,6 +75,16 @@ Read [ARCHITECTURE.md](ARCHITECTURE.md) for state ownership, dependency boundari
 npm run check
 npm run build
 ```
+
+The browser suite runs against a production build on a dedicated local port, with a fresh browser context for each test:
+
+```sh
+npx playwright install chromium
+npm run build
+npm run test:e2e
+```
+
+It exercises family search, pagination, keyboard selection, cancelling draft filters, household isolation, and the complete makeup booking journey. The journey checks that the original and sibling lessons remain intact and that reopening the original does not allow another booking. GitHub Actions runs this suite after the production build. Failure screenshots and traces stay in ignored local test output directories.
 
 `check` runs lint, formatting, type checking and tests. The production build is a separate gate. To run them individually:
 

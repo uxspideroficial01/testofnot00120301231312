@@ -2,7 +2,11 @@ import { useEffect, useState } from "react";
 import { createWorkspaceBookingState } from "@/demo/directory-booking";
 import { DEMO_FAMILIES, DEMO_FAMILY } from "@/demo/families";
 import type { BookingState, Session } from "@/domain/makeup";
-import { OFFICIAL_SESSIONS, type OfficialSession } from "@/domain/official";
+import { OFFICIAL_SESSIONS } from "@/demo/official-sessions";
+import {
+  findOfficialSessionById,
+  type OfficialSession,
+} from "@/domain/official";
 import type { OpenProfile, WorkspaceProps } from "./types";
 import { resolveFamilyId } from "./route-params";
 
@@ -73,11 +77,10 @@ export function useWorkspace({
     window.history.replaceState({}, "", url);
   }
 
-  function openSessionByTitle(title: string) {
-    const session = officialSessions.find(
-      (session) => session.title === title || session.title.includes(title),
-    );
+  function openOfficialSession(id: string) {
+    const session = findOfficialSessionById(officialSessions, id);
     if (session) setOfficialId(session.id);
+    else setNotice("This session is no longer available.");
   }
 
   function updateOfficialSession(next: OfficialSession) {
@@ -160,9 +163,9 @@ export function useWorkspace({
     officialSessions,
     officialId,
     setOfficialId,
-    officialSession: officialSessions.find(
-      (session) => session.id === officialId,
-    ),
+    officialSession: officialId
+      ? findOfficialSessionById(officialSessions, officialId)
+      : undefined,
     person,
     booking,
     setBooking,
@@ -170,7 +173,7 @@ export function useWorkspace({
     setNotice,
     navigate,
     openPerson,
-    openSessionByTitle,
+    openOfficialSession,
     updateOfficialSession,
     archiveOfficialSession,
     reset,
