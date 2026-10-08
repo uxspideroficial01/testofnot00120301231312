@@ -1,15 +1,7 @@
 import { useState, type ReactNode } from "react";
-import {
-  Bot,
-  ChevronDown,
-  ChevronsLeft,
-  ChevronsRight,
-  ChevronsUpDown,
-  Clock3,
-  LifeBuoy,
-  RotateCcw,
-} from "lucide-react";
+import { ChevronDown, ChevronsUpDown, RotateCcw } from "lucide-react";
 import { NAVIGATION_GROUPS } from "./navigation";
+import { SidebarIcon } from "./icons/sidebar-icon";
 
 type Props = {
   view: string;
@@ -43,11 +35,9 @@ export function WorkspaceShell({
             aria-label={collapsed ? "Expand navigation" : "Collapse navigation"}
             onClick={() => setCollapsed(!collapsed)}
           >
-            {collapsed ? (
-              <ChevronsRight size={16} />
-            ) : (
-              <ChevronsLeft size={16} />
-            )}
+            <SidebarIcon
+              name={collapsed ? "chevrons-right" : "chevrons-left"}
+            />
           </button>
         </div>
         {orgMenu && (
@@ -63,10 +53,11 @@ export function WorkspaceShell({
           {NAVIGATION_GROUPS.map((group) => (
             <div className="nav-group" key={group.label}>
               <div className="nav-group-label">{group.label}</div>
-              {group.items.map(({ name, icon: Icon }) => (
+              {group.items.map(({ name, icon }) => (
                 <div key={name}>
                   <button
                     title={collapsed ? name : undefined}
+                    aria-label={name === "Calendar" ? "Calendar EDT" : name}
                     className={`nav-item ${view === name || (name === "Marketing" && view === "Email Templates") ? "active" : ""}`}
                     onClick={() =>
                       name === "Marketing"
@@ -74,11 +65,11 @@ export function WorkspaceShell({
                         : navigate(name)
                     }
                   >
-                    <Icon size={17} />
+                    <SidebarIcon name={icon} />
                     <span className="nav-label">{name}</span>
                     {name === "Calendar" && (
                       <span className="nav-meta">
-                        <Clock3 size={11} /> EDT
+                        <SidebarIcon name="clock" size={12} /> EDT
                       </span>
                     )}
                     {name === "Sessions" && (
@@ -118,20 +109,22 @@ export function WorkspaceShell({
         </nav>
         <button
           className="ai-assistant nav-item"
+          aria-label="Ask Noto AI"
           onClick={() =>
             setNotice("Noto AI is unavailable in this local workspace.")
           }
         >
-          <Bot size={16} />
+          <SidebarIcon name="bot" />
           <span className="nav-label">Ask Noto AI</span>
         </button>
         <button
           className="support nav-item"
+          aria-label="Support"
           onClick={() =>
             setNotice("Support is unavailable in this local workspace.")
           }
         >
-          <LifeBuoy size={18} />
+          <SidebarIcon name="life-buoy" />
           <span className="nav-label">Support</span>
         </button>
         <div className="profile">

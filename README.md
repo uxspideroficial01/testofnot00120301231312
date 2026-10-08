@@ -100,6 +100,6 @@ Tests cover booking/issuance invariants, session and roster validation, and CSV 
 
 ## Reference assets
 
-The visual reconstruction uses supplied product recordings. Branding and some display names remain reference-derived; contact emails and phone numbers use demonstration values. This repository does not contain the source recordings. Geist Sans is bundled under the [SIL Open Font License](public/fonts/OFL.txt).
+The visual reconstruction uses supplied product recordings. Branding and some display names remain reference-derived; contact emails and phone numbers use demonstration values. This repository does not contain the source recordings. Geist Sans is bundled under the [SIL Open Font License](public/fonts/OFL.txt). Sidebar icon geometry is preserved from Lucide 0.468.0 under its [ISC license](third-party/LUCIDE-LICENSE.txt), matching the supplied reference independently of the version used by other controls.
 
 Reference-derived branding is included for demonstration and does not imply endorsement. No license to Noto's product or brand assets is granted by this repository. Do not add real student records, credentials, private documents or recordings to public commits.
