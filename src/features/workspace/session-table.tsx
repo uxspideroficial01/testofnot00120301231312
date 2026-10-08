@@ -33,7 +33,7 @@ export function SessionTable({
           <col style={{ width: 298 }} />
           <col />
           <col style={{ width: 166 }} />
-          <col style={{ width: 84 }} />
+          <col style={{ width: 112 }} />
         </colgroup>
         <thead>
           <tr>
@@ -54,7 +54,7 @@ export function SessionTable({
             <th>Name</th>
             <th>Staff</th>
             <th>Location</th>
-            <th>Status</th>
+            <th className="session-status-cell">Status</th>
           </tr>
         </thead>
         <tbody>
@@ -90,7 +90,7 @@ export function SessionTable({
               </td>
               <td>{row.staff}</td>
               <td>{row.location}</td>
-              <td>{row.status}</td>
+              <td className="session-status-cell">{row.status}</td>
             </tr>
           ))}
           {!rows.length && (

@@ -125,6 +125,10 @@
 .sessions-table {
   min-width: 1181px;
 }
+.sessions-table .session-status-cell {
+  padding-right: 24px;
+  white-space: nowrap;
+}
 .sessions-table td:nth-child(2),
 .sessions-table td:nth-child(3) {
   white-space: nowrap;
