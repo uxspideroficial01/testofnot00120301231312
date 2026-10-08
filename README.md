@@ -25,6 +25,20 @@ npm run start
 
 No database, environment variables, API keys or external services are required. PostgreSQL, authentication, authorization, payments and message delivery are **not integrated**. Changes live in React state and reset on reload; some feature-local drafts also reset when leaving that feature.
 
+## Deploy to Netlify
+
+[Open the hosted demonstration](https://noto-workflow-uxspider.netlify.app/?view=Sessions&family=martins).
+
+`netlify.toml` declares the Next.js build and output directory. Netlify automatically supplies its Next.js adapter; this application requires that runtime rather than a static-file upload because it renders dynamic routes and sets a per-request Content Security Policy nonce.
+
+After authenticating the official Netlify CLI, deploy to your chosen project:
+
+```sh
+npx netlify-cli deploy --prod --site <project-name-or-id>
+```
+
+The CLI builds and uploads the application. `.netlify/` is ignored by Git. Manual deployments do not update automatically after a GitHub push; run the deployment command again to publish changes. No environment variables are needed for this demonstration.
+
 ## Try the proposed workflow
 
 Open [Sessions for the Martins family](http://127.0.0.1:3006/?view=Sessions&family=Martins), or choose **Filter → Family** from Sessions. Search for **Maria Martins** or **Clara**, select the matching family and choose **Apply filter**.
