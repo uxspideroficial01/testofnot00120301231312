@@ -1,0 +1,139 @@
+.official-roster {
+  padding: 20px 16px 20px 20px;
+  border-bottom: 1px solid var(--line);
+}
+.official-roster-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  height: 32px;
+}
+.official-roster-header small {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 16px;
+}
+.official-roster-actions {
+  display: flex;
+  gap: 8px;
+}
+.official-student {
+  height: 41px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  border-bottom: 1px solid #f5f5f5;
+}
+.official-student:last-child {
+  border-bottom: 0;
+}
+.official-student-name {
+  font-weight: 500;
+  white-space: nowrap;
+  font-size: 14px;
+}
+.official-student-name:hover {
+  text-decoration: underline;
+}
+.official-ad-hoc {
+  color: #596575;
+  font-size: 12px;
+  white-space: nowrap;
+  margin-left: 3px;
+}
+.official-student-tools {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+}
+.official-attendance {
+  height: 32px;
+  padding: 0 8px;
+  border-radius: 5px;
+  gap: 8px;
+  white-space: nowrap;
+}
+.official-attendance:hover {
+  background: #f1f5f9;
+}
+.official-present {
+  color: #22c55e;
+}
+.official-pending {
+  color: #6b7280;
+}
+.official-absent {
+  color: #e44c63;
+}
+.official-note-shortcut {
+  font-size: 12px;
+  height: 24px;
+  padding: 0 7px;
+  gap: 4px;
+  opacity: 0;
+  position: absolute;
+  right: 136px;
+  background: #fff;
+}
+.official-student:hover .official-note-shortcut,
+.official-note-shortcut:focus-visible {
+  opacity: 1;
+}
+.official-menu-anchor {
+  position: relative;
+  flex-shrink: 0;
+}
+.official-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 4px);
+  min-width: 136px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  padding: 4px;
+  border-radius: 6px;
+  box-shadow: 0 3px 5px #00000026;
+  z-index: 5;
+}
+.official-menu button {
+  border: 0;
+  background: #fff;
+  width: 100%;
+  justify-content: flex-start;
+  height: 32px;
+  padding: 0 8px;
+  gap: 8px;
+  white-space: nowrap;
+  font-size: 14px;
+  border-radius: 3px;
+}
+.official-menu button:hover {
+  background: #f5f6f8;
+}
+.official-menu .official-danger-text {
+  color: #be123c;
+}
+.official-remove-menu {
+  min-width: 155px;
+}
+.official-attendance-menu {
+  min-width: 135px;
+}
+.official-attendance-menu button svg:last-child:not(:first-child) {
+  margin-left: auto;
+}
+.official-individual {
+  padding-top: 18px;
+  padding-bottom: 20px;
+}
+.official-individual .official-roster-header {
+  height: 20px;
+  margin-bottom: 5px;
+}
+.official-individual .official-student {
+  height: 40px;
+}

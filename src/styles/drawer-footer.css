@@ -1,0 +1,18 @@
+.drawer-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-top: 1px solid var(--line);
+  padding: 15px 20px;
+  min-height: 64px;
+  background: white;
+  flex-shrink: 0;
+}
+.drawer-footer > .muted {
+  font-size: 12px;
+}
+.drawer-footer .btn-primary {
+  padding-left: 15px;
+  padding-right: 15px;
+}

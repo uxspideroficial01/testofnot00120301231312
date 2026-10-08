@@ -1,0 +1,26 @@
+.pp-local-dialog {
+  padding: 24px;
+  min-width: 350px;
+}
+.pp-local-dialog h2 {
+  margin: 0 30px 22px 0;
+  font-size: 18px;
+}
+.pp-local-dialog label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+.pp-local-dialog label input {
+  height: 36px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 6px 10px;
+}
+.pp-dialog-actions {
+  margin-top: 24px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}

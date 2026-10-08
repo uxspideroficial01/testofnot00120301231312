@@ -1,0 +1,22 @@
+/* Ordered imports preserve the reference interface cascade across routes. */
+@import "../styles/base.css";
+@import "../styles/controls.css";
+@import "../features/workspace/shell.css";
+@import "../features/workspace/session-list.css";
+@import "../styles/toast.css";
+@import "../features/calendar/month-picker.css";
+@import "../features/workspace/notice.css";
+@import "../features/calendar/filters.css";
+@import "../features/calendar/grid.css";
+@import "../features/calendar/events.css";
+@import "../styles/overlays.css";
+@import "../features/makeup/session-details.css";
+@import "../features/makeup/family-summary.css";
+@import "../features/makeup/booking.css";
+@import "../styles/drawer-footer.css";
+@import "../features/makeup/review.css";
+@import "../styles/modals.css";
+@import "../features/makeup/schedule-modal.css";
+@import "../styles/responsive.css";
+@import "../styles/refinements.css";
+@import "../features/makeup/administrative-workflow.css";

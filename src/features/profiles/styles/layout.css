@@ -1,0 +1,86 @@
+.person-profile {
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  color: #080e19;
+  background: #fff;
+}
+.person-profile p {
+  margin: 0;
+}
+.person-profile button {
+  font-weight: 400;
+}
+.pp-header {
+  height: 50px;
+  flex: 0 0 50px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 17px 0 28px;
+}
+.pp-header > svg {
+  color: #6b7280;
+}
+.pp-plain {
+  background: none;
+  border: 0;
+  padding: 0;
+  color: inherit;
+}
+.pp-breadcrumb {
+  color: #596576;
+}
+.pp-member-search {
+  margin-left: auto;
+  width: 288px;
+  height: 32px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 10px;
+  color: #606b7c;
+  position: relative;
+}
+.pp-member-search input {
+  border: 0;
+  background: none;
+  width: 100%;
+  min-width: 0;
+}
+.pp-search-results {
+  position: absolute;
+  top: 36px;
+  right: 0;
+  width: 100%;
+  z-index: 5;
+  border: 1px solid var(--line);
+  box-shadow: 0 3px 8px #0002;
+  background: white;
+  border-radius: 6px;
+  padding: 5px;
+}
+.pp-search-results button {
+  background: none;
+  border: 0;
+  width: 100%;
+  padding: 7px;
+}
+.pp-body {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 376px;
+}
+.pp-main {
+  overflow-y: auto;
+  min-height: 0;
+  min-width: 0;
+  padding: 20px;
+  scrollbar-width: thin;
+  scrollbar-color: #777 transparent;
+}

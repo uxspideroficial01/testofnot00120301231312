@@ -1,0 +1,125 @@
+@font-face {
+  font-family: "Geist Sans";
+  src: url("/fonts/geist-sans.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --accent: hsl(237 100% 70%);
+  --accent-hover: hsl(238 84% 61%);
+  --accent-soft: #f5f5ff;
+  --text: hsl(222.2 84% 4.9%);
+  --muted: hsl(215.4 16.3% 46.9%);
+  --line: #e2e8f0;
+  --sidebar: #f9fafb;
+  --radius: 6px;
+  font-family: "Geist Sans", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: var(--text);
+  background: #fff;
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  line-height: 20px;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+button {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: default;
+  opacity: 0.48;
+}
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+input,
+textarea,
+select {
+  outline: none;
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #8577fd;
+  outline-offset: 2px;
+}
+input[type="checkbox"] {
+  appearance: none;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  margin: 0;
+  vertical-align: middle;
+  background: #fff;
+  cursor: pointer;
+  display: inline-grid;
+  place-content: center;
+}
+input[type="checkbox"]:checked {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+input[type="checkbox"]:checked:after {
+  content: "";
+  width: 8px;
+  height: 4px;
+  transform: rotate(-45deg);
+  border-left: 1.5px solid white;
+  border-bottom: 1.5px solid white;
+  margin-top: -2px;
+}
+input[type="checkbox"]:focus-visible {
+  outline-offset: 3px;
+}
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+h1 {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.3px;
+}
+h2 {
+  font-size: 17px;
+  line-height: 1.35;
+  letter-spacing: -0.35px;
+  font-weight: 600;
+}
+h3 {
+  font-size: 15px;
+  font-weight: 600;
+}
+svg {
+  flex-shrink: 0;
+  stroke-width: 2;
+}
+a {
+  color: var(--accent);
+}

@@ -1,0 +1,28 @@
+.workspace-notice {
+  position: fixed;
+  right: 13px;
+  bottom: 13px;
+  z-index: 160;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  box-shadow: 0 8px 20px #0002;
+  padding: 24px;
+  width: 388px;
+  max-width: calc(100vw - 26px);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.workspace-notice strong {
+  font-weight: 600;
+}
+.workspace-notice button {
+  position: absolute;
+  right: 8px;
+  top: 6px;
+  background: none;
+  border: none;
+  color: #999;
+  font-size: 18px;
+}

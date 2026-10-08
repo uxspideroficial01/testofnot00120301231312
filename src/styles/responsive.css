@@ -1,0 +1,137 @@
+@media (min-width: 1650px) {
+  .header-actions .search-field {
+    width: 330px;
+  }
+  .sessions-table td {
+    height: 39px;
+  }
+  .schedule-column-head {
+    height: 54px;
+  }
+}
+@media (max-width: 1250px) {
+  .date-range {
+    min-width: 230px;
+    font-size: 12px;
+  }
+  .header-actions .search-field {
+    width: 200px;
+  }
+  .header-actions {
+    gap: 7px;
+  }
+  .page-header {
+    padding: 0 15px;
+  }
+  .calendar-header {
+    gap: 8px;
+  }
+  .calendar-actions {
+    gap: 7px;
+  }
+  .calendar-actions > .btn:not(.btn-primary) {
+    font-size: 12px;
+  }
+  .date-title {
+    font-size: 16px;
+  }
+  .calendar-header > .icon-button {
+    display: none;
+  }
+}
+@media (max-width: 1050px) {
+  .workspace {
+    grid-template-columns: 215px minmax(0, 1fr);
+  }
+  .nav-item {
+    gap: 9px;
+  }
+  .calendar-filters {
+    width: 235px;
+    min-width: 235px;
+  }
+  .month-days button {
+    width: 28px;
+  }
+  .header-actions .date-range {
+    display: none;
+  }
+  .calendar-actions > .btn:first-child {
+    display: none;
+  }
+  .calendar-header {
+    padding: 0 10px;
+  }
+  .schedule-scroll {
+    margin: 0 10px 12px;
+  }
+  .today-control button {
+    padding: 0 6px;
+  }
+  .calendar-actions select {
+    width: 66px;
+  }
+}
+@media (max-width: 760px) {
+  .workspace {
+    grid-template-columns: 56px minmax(0, 1fr);
+  }
+  .nav-label,
+  .nav-group-label,
+  .nav-meta,
+  .count-badge,
+  .nav-chevron,
+  .nav-subitems {
+    display: none !important;
+  }
+  .org-header {
+    padding: 0;
+    justify-content: center;
+  }
+  .org-switch {
+    display: none;
+  }
+  .nav-item {
+    justify-content: center;
+    padding: 0;
+  }
+  .profile {
+    padding: 0;
+    justify-content: center;
+  }
+  .calendar-filters {
+    display: none;
+  }
+  .page-header {
+    padding: 0 12px;
+  }
+  .header-actions .search-field {
+    width: 145px;
+  }
+  .header-actions > .btn:not(.btn-primary) {
+    display: none;
+  }
+  .header-actions .btn-primary {
+    font-size: 12px;
+  }
+  .table-toolbar {
+    padding: 0 12px;
+    gap: 8px;
+  }
+  .table-footer {
+    font-size: 11px;
+    gap: 6px;
+  }
+  .table-footer > .muted {
+    display: none;
+  }
+  .table-footer strong {
+    padding: 0 5px;
+  }
+  .drawer {
+    width: 510px;
+  }
+  .calendar-actions > .icon-button:not(.btn-primary) {
+    display: none;
+  }
+}

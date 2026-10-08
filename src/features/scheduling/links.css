@@ -1,0 +1,21 @@
+.sv-links {
+  min-width: 1280px;
+}
+
+.sv-links td {
+  height: 53px;
+  vertical-align: top;
+  white-space: normal;
+}
+
+.sv-links td:first-child {
+  min-width: 280px;
+}
+
+.sv-links td:nth-child(2) {
+  min-width: 240px;
+}
+
+.sv-links td:nth-child(3) {
+  min-width: 550px;
+}

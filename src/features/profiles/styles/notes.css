@@ -1,0 +1,140 @@
+.pp-editor {
+  border: 1px solid #e3e5e9;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+.pp-editor-tools {
+  display: flex;
+  gap: 8px;
+  padding: 8px 12px;
+}
+.pp-editor-tools .pp-button {
+  width: 32px;
+  padding: 0;
+}
+.pp-editor-tools .pressed {
+  background: #eeeafd;
+}
+.pp-editor textarea {
+  border: 0;
+  padding: 8px 12px;
+  height: 112px;
+  width: 100%;
+  resize: vertical;
+  display: block;
+}
+.pp-editor textarea::placeholder {
+  color: #a5aab0;
+}
+.pp-editor-bottom {
+  display: flex;
+  align-items: center;
+  height: 41px;
+  border-top: 1px solid #e3e5e9;
+  padding: 5px 12px;
+  gap: 12px;
+}
+.pp-editor-bottom > label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.pp-editor-bottom > button {
+  margin-left: auto;
+  height: 28px;
+  font-size: 12px;
+}
+.person-profile input.pp-toggle {
+  appearance: none;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  border: 0;
+  border-radius: 20px;
+  background: #e0e6ee;
+  flex-shrink: 0;
+  position: relative;
+  cursor: pointer;
+}
+.person-profile input.pp-toggle::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 1px 3px #0002;
+  transition: transform 0.1s;
+}
+.person-profile input.pp-toggle:checked {
+  background: #6755f4;
+}
+.person-profile input.pp-toggle:checked::before {
+  transform: translateX(20px);
+}
+.person-profile input.pp-toggle:checked::after {
+  display: none;
+}
+.pp-note-filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 32px;
+  border: 1px solid #e3e5e9;
+  border-radius: 6px;
+  padding: 0 9px;
+  margin-bottom: 16px;
+}
+.pp-note-filter select {
+  border: 0;
+  background: none;
+}
+.pp-note {
+  padding: 15px 12px;
+  border: 1px solid #e3e5e9;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+.pp-note strong {
+  font-weight: 500;
+}
+.pp-note > span {
+  margin-left: 5px;
+  color: #687181;
+}
+.pp-note p {
+  margin-top: 10px;
+  white-space: pre-wrap;
+}
+.pp-task {
+  display: flex;
+  gap: 10px;
+  padding: 12px;
+  border-bottom: 1px solid var(--line);
+}
+.pp-editor.task-editor {
+  margin: 40px 12px 0;
+}
+.pp-author {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #585199;
+  font-size: 11px;
+  background: #ded9fa;
+}
+.pp-task-date {
+  position: relative;
+}
+.pp-task-date input {
+  position: absolute;
+  width: 22px;
+  opacity: 0;
+  inset: 0;
+  cursor: pointer;
+}

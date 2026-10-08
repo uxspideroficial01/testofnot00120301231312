@@ -1,0 +1,25 @@
+.modal {
+  width: 600px;
+  max-width: calc(100vw - 30px);
+  border-radius: 7px;
+  overflow: visible;
+  margin: auto;
+  box-shadow: 0 5px 40px #0003;
+}
+.modal::backdrop {
+  background: #000c;
+}
+.modal .overlay-content {
+  padding: 22px 24px 24px;
+  display: block;
+}
+.modal .overlay-close {
+  top: 15px;
+  right: 17px;
+  border: 0;
+  box-shadow: none;
+}
+.modal-title {
+  font-size: 18px;
+  margin: 0 0 16px;
+}

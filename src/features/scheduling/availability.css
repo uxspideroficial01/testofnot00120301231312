@@ -1,0 +1,178 @@
+.sv-availability {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  min-height: 0;
+}
+
+.sv-availability-filters {
+  padding: 20px;
+  border-right: 1px solid #dfe4eb;
+  overflow: auto;
+}
+
+.sv-availability-filters > label {
+  font-size: 14px;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.sv-availability-filters > label > .sv-button,
+.sv-availability-filters select {
+  margin-top: 14px;
+  width: 100%;
+  justify-content: flex-start;
+  min-height: 32px;
+}
+
+.sv-availability-filters select {
+  border: 1px solid #dfe3eb;
+  background: white;
+  padding: 6px 11px;
+  border-radius: 6px;
+  font: inherit;
+  font-weight: 400;
+}
+
+.sv-time-pair {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.sv-time-pair select {
+  width: 50%;
+}
+
+.sv-days {
+  display: flex;
+  gap: 5px;
+  margin-top: -6px;
+}
+
+.sv-days button {
+  background: #fff;
+  border: 1px solid #e2e4ec;
+  border-radius: 5px;
+  min-width: 35px;
+  padding: 7px 8px;
+  font: inherit;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.sv-days button.active {
+  background: #bdb6fa;
+  border-color: #d4cffc;
+}
+
+.sv-clear {
+  background: none;
+  border: 0;
+  padding: 0;
+  text-decoration: underline;
+  color: #7c8492;
+  cursor: pointer;
+  margin: 18px 0 32px;
+  font: inherit;
+  font-size: 14px;
+}
+
+.sv-availability-filters hr {
+  border: 0;
+  border-top: 1px solid #dfe4e9;
+  margin: 30px 0;
+}
+
+.sv-availability-table td {
+  height: 56px;
+  white-space: normal;
+  padding: 12px 20px;
+}
+
+.sv-availability-table th {
+  height: 60px;
+}
+
+.sv-availability-table td:first-child {
+  min-width: 180px;
+}
+
+.sv-availability-table td:nth-child(2) {
+  min-width: 130px;
+}
+
+.sv-availability > .sv-page {
+  padding: 20px 16px 20px 20px;
+}
+
+.sv-availability-table {
+  table-layout: fixed;
+}
+
+.sv-availability-table th {
+  height: 40px;
+  padding: 7px 20px;
+}
+
+.sv-availability-table th:first-child {
+  width: 26%;
+}
+
+.sv-availability-table th:nth-child(2) {
+  width: 17%;
+}
+
+.sv-availability-table th:nth-child(3) {
+  width: 19%;
+}
+
+.sv-availability-table th:nth-child(4) {
+  width: 21%;
+}
+
+.sv-availability-table th:nth-child(5) {
+  width: 17%;
+}
+
+.sv-availability-table td {
+  padding: 9px 20px;
+  height: 57px;
+  line-height: 20px;
+}
+
+.sv-availability-table td:first-child {
+  min-width: 0;
+}
+
+.sv-availability-table td:nth-child(2) {
+  min-width: 0;
+  white-space: nowrap;
+}
+
+.sv-availability-table .sv-link {
+  text-align: left;
+  white-space: nowrap;
+  font-size: 14px;
+  color: #7363d9;
+}
+
+.sv-availability > .sv-page > .sv-footer {
+  padding: 9px 8px;
+  border-top: 0;
+}
+
+.sv-availability-filters label:nth-of-type(2) {
+  margin-bottom: 14px;
+}
+
+.sv-availability-filters .sv-days {
+  gap: 4px;
+}
+
+.sv-availability-filters .sv-days button {
+  flex: 1;
+  height: 32px;
+  padding: 5px 8px;
+}

@@ -1,0 +1,107 @@
+.sv-table-scroll {
+  overflow: auto;
+  flex: 1;
+  min-height: 0;
+}
+
+.sv-table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: left;
+  white-space: nowrap;
+  font-size: 14px;
+}
+
+.sv-table th {
+  height: 40px;
+  color: #6e7685;
+  font-weight: 500;
+  padding: 7px 20px;
+  border-bottom: 1px solid #dfe4ea;
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.sv-table td {
+  padding: 10px 20px;
+  border-bottom: 1px solid #dfe4e9;
+  height: 38px;
+}
+
+.sv-table tr:hover td {
+  background: #f8f9fb;
+}
+
+.sv-table input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  accent-color: #6654ff;
+  margin: 0;
+  vertical-align: middle;
+}
+
+.sv-table th:first-child:has(input),
+.sv-table td:first-child:has(input) {
+  width: 40px;
+  padding: 10px 8px 10px 20px;
+}
+
+.sv-table .sv-muted {
+  color: #7c808a;
+}
+
+.sv-footer {
+  height: 55px;
+  border-top: 1px solid #e4e6eb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px;
+  color: #737a87;
+  font-size: 13px;
+  flex-shrink: 0;
+  background: #fff;
+}
+
+.sv-footer > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #171922;
+}
+
+.sv-footer select {
+  border: 1px solid #dfe4e9;
+  border-radius: 6px;
+  padding: 7px;
+  background: #fff;
+  font: inherit;
+  margin: 0 28px 0 6px;
+}
+
+.sv-footer > div > span {
+  margin-right: 30px;
+}
+
+.sv-footer button {
+  border: 1px solid #e5e7ec;
+  background: #fff;
+  border-radius: 6px;
+  width: 31px;
+  height: 31px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999fa8;
+}
+
+.sv-footer button:disabled {
+  opacity: 0.5;
+}
+
+.sv-padded .sv-table td,
+.sv-padded .sv-table th {
+  padding-left: 20px;
+}

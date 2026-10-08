@@ -1,0 +1,165 @@
+.sv-form label,
+.sv-compose-fields label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 18px;
+  font-size: 12px;
+  color: #777f8c;
+}
+
+.sv-form input,
+.sv-form textarea,
+.sv-form select,
+.sv-compose-fields input {
+  border: 1px solid #dfe4e9;
+  border-radius: 6px;
+  padding: 10px 12px;
+  font: inherit;
+  font-size: 14px;
+  background: #fff;
+  color: #202530;
+}
+
+.sv-email {
+  height: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 16px;
+  min-height: 0;
+}
+
+.sv-email-list,
+.sv-composer {
+  border: 1px solid #dee4eb;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.sv-email-list > div {
+  padding: 12px 16px;
+  border-bottom: 1px solid #dfe4e9;
+}
+
+.sv-email-list .sv-button {
+  width: 100%;
+}
+
+.sv-composer {
+  display: flex;
+  flex-direction: column;
+}
+
+.sv-composer > header {
+  padding: 20px 16px;
+  border-bottom: 1px solid #dfe4e9;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.sv-compose-fields {
+  padding: 18px 16px;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.sv-compose-fields label {
+  margin-bottom: 13px;
+  font-size: 11px;
+  gap: 5px;
+}
+
+.sv-compose-fields input {
+  padding: 9px 12px;
+  min-height: 34px;
+  flex-shrink: 0;
+}
+
+.sv-compose-fields label:first-child input {
+  color: #999;
+  background: #fdfdfd;
+}
+
+.sv-rich-editor {
+  border: 1px solid #dfe4e9;
+  border-radius: 5px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 150px;
+}
+
+.sv-format {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 16px;
+}
+
+.sv-format button {
+  width: 31px;
+  height: 32px;
+  background: #fff;
+  border: 1px solid #e0e4e9;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.sv-format button.active {
+  background: #eeebff;
+  color: #6254ed;
+}
+
+.sv-rich-editor textarea {
+  flex: 1;
+  border: 0;
+  padding: 15px;
+  resize: none;
+  outline: 0;
+  font: inherit;
+  font-size: 14px;
+  line-height: 23px;
+  background: transparent;
+  color: #292c35;
+}
+
+.sv-rich-editor textarea::placeholder {
+  color: #a6a9ae;
+}
+
+.sv-compose-fields footer {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.sv-compose-fields footer select {
+  border: 1px solid #dfe4e9;
+  border-radius: 6px;
+  min-width: 200px;
+  padding: 6px 12px;
+  background: white;
+  font: inherit;
+  font-size: 12px;
+  margin-right: auto;
+}
+
+.sv-draft {
+  display: block;
+  text-align: left;
+  width: 100%;
+  padding: 16px;
+  background: #fafaff;
+  border: 0;
+  border-bottom: 1px solid #e5e7ed;
+  cursor: pointer;
+}
+
+.sv-draft small {
+  display: block;
+  margin: 7px 0;
+}

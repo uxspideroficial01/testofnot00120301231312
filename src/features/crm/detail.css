@@ -1,0 +1,234 @@
+.sv-crm-meta {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 10px 22px 22px;
+  gap: 25px;
+  border-bottom: 1px solid #e0e5ed;
+  font-size: 14px;
+}
+
+.sv-crm-meta small {
+  display: block;
+  color: #818692;
+  font-size: 13px;
+  margin: 6px 0 14px;
+}
+
+.sv-crm-meta select {
+  border: 0;
+  background: white;
+  font: inherit;
+}
+
+.sv-crm-detail {
+  display: grid;
+  grid-template-columns: 36% 1fr;
+  min-height: 80%;
+}
+
+.sv-crm-detail > .sv-contact {
+  background: #f8f9fb;
+  border-left: 0;
+  border-right: 1px solid #dfe4ea;
+}
+
+.sv-recorded-crm-panel {
+  width: calc(80vw - 4px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: #111827;
+}
+
+.sv-recorded-crm-panel > header {
+  flex-shrink: 0;
+  height: 52px;
+  min-height: 52px;
+  padding: 17px 20px 4px;
+  border-bottom: 0;
+  align-items: flex-start;
+}
+
+.sv-recorded-crm-panel > header h2 {
+  line-height: 27px;
+  color: #6b58e9;
+  font-size: 18px;
+  letter-spacing: 0;
+}
+
+.sv-recorded-crm-panel > header .sv-icon {
+  padding: 0;
+  margin-top: -1px;
+  margin-right: -8px;
+}
+
+.sv-recorded-crm-panel > header .sv-icon svg {
+  width: 16px;
+}
+
+.sv-recorded-crm-panel .sv-crm-meta {
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 0;
+  padding: 5px 20px 20px;
+  height: 75px;
+  min-height: 75px;
+  font-size: 14px;
+}
+
+.sv-recorded-crm-panel .sv-crm-meta > div {
+  min-width: 0;
+}
+
+.sv-recorded-crm-panel .sv-crm-meta > div:nth-child(3) {
+  grid-column: auto;
+}
+
+.sv-recorded-crm-panel .sv-crm-meta {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.sv-recorded-crm-panel .sv-crm-meta > div:nth-child(2) {
+  margin-left: 0;
+}
+
+.sv-recorded-crm-panel .sv-crm-meta > div:nth-child(3) {
+  margin-left: 0;
+}
+
+.sv-recorded-crm-panel .sv-crm-meta small {
+  color: #6e727d;
+  font-size: 14px;
+  margin: 0 0 8px;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.sv-recorded-crm-panel .sv-crm-meta span {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  white-space: nowrap;
+}
+
+.sv-recorded-crm-panel .sv-crm-meta .sv-mini-avatar {
+  width: 18px;
+  height: 18px;
+  font-size: 8px;
+  background: #f1f9fe;
+}
+
+.sv-recorded-crm-panel .sv-crm-meta select {
+  appearance: none;
+  padding: 0;
+  color: #111;
+}
+
+.sv-recorded-crm-panel .sv-crm-detail {
+  flex: 1;
+  min-height: 0;
+  grid-template-columns: 36.65% 1fr;
+}
+
+.sv-crm-contact-scroll {
+  min-height: 0;
+  overflow-y: auto;
+  background: #f8f9fb;
+  border-right: 1px solid var(--line);
+  padding: 21px 19px;
+  scrollbar-width: thin;
+  scrollbar-color: #dfe6ee transparent;
+}
+
+.sv-crm-contact-scroll section {
+  margin-bottom: 24px;
+}
+
+.sv-crm-contact-scroll h4 {
+  color: #959ba5;
+  font-size: 11px;
+  letter-spacing: 0.4px;
+  line-height: 16px;
+  font-weight: 500;
+  margin: 0 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.sv-crm-contact-scroll h4 .sv-icon {
+  font-size: 12px;
+  margin-left: auto;
+  padding: 0;
+  letter-spacing: 0;
+  gap: 3px;
+}
+
+.sv-crm-field {
+  display: grid;
+  grid-template-columns: 124px minmax(0, 1fr);
+  gap: 0;
+  min-height: 32px;
+  align-items: center;
+  padding: 2px 5px;
+}
+
+.sv-crm-field > span:first-child {
+  color: #59616e;
+  font-size: 12px;
+  line-height: 16px;
+  padding-right: 16px;
+}
+
+.sv-crm-field input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 14px;
+  color: #111827;
+  padding: 0;
+  min-width: 0;
+}
+
+.sv-crm-field input::placeholder {
+  color: #687282;
+  opacity: 1;
+}
+
+.sv-crm-field input:focus {
+  background: #fff;
+  outline: 1px solid #d9dde5;
+  border-radius: 3px;
+}
+
+.sv-crm-field .sv-crm-contact-value {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  min-width: 0;
+  font-size: 14px;
+}
+
+.sv-crm-contact-value svg {
+  flex-shrink: 0;
+  color: #161a20;
+}
+
+.sv-crm-contact-value a,
+.sv-crm-contact-value .sv-link {
+  color: #7361dc;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.sv-crm-contact-scroll section:last-child .sv-crm-field {
+  min-height: 44px;
+}
+
+.sv-crm-field input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  appearance: auto;
+}

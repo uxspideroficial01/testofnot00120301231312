@@ -1,0 +1,96 @@
+.pp-ledger-notice {
+  display: flex;
+  gap: 12px;
+  border: 1px solid #e3e5e9;
+  border-radius: 8px;
+  padding: 12px 16px;
+  line-height: 21px;
+  color: #647080;
+}
+.pp-ledger-notice svg {
+  flex-shrink: 0;
+  color: #101820;
+  margin-top: 1px;
+}
+.pp-invoice-summary {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin: 16px 0;
+  height: 32px;
+  color: #677080;
+}
+.pp-invoice-summary strong {
+  font-weight: 400;
+  color: #080e19;
+}
+.pp-invoice-summary > button {
+  margin-left: auto;
+  color: #080e19;
+}
+.pp-invoices {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: left;
+  table-layout: fixed;
+}
+.pp-invoices th {
+  color: #606b7c;
+  font-weight: 400;
+  padding: 4px 7px;
+  height: 43px;
+}
+.pp-invoices td {
+  border-top: 1px solid #e0e4e9;
+  height: 77px;
+  padding: 8px 7px;
+  vertical-align: middle;
+  line-height: 20px;
+}
+.pp-invoices th:first-child {
+  width: 36px;
+  padding-left: 20px;
+}
+.pp-invoices td:first-child {
+  padding-left: 20px;
+}
+.pp-invoices th:nth-child(2) {
+  width: 34%;
+}
+.pp-invoices th:nth-child(3) {
+  width: 14%;
+}
+.pp-invoices th:nth-child(4) {
+  width: 7%;
+}
+.pp-invoices th:nth-child(5),
+.pp-invoices th:nth-child(6) {
+  width: 11%;
+}
+.pp-invoices th:nth-child(7) {
+  width: 13%;
+}
+.pp-invoices td:nth-child(2) {
+  font-size: 12px;
+  line-height: 15px;
+}
+.pp-invoices small {
+  font-size: 12px;
+  color: #667081;
+}
+.pp-invoice-status {
+  font-size: 12px;
+  line-height: 20px;
+  color: #991130;
+  padding: 3px 11px;
+  background: #ffdbe2;
+  border-radius: 20px;
+}
+.pp-invoice-status.paid {
+  background: #dfffe8;
+  color: #26613d;
+}
+.pp-empty {
+  padding: 35px 20px;
+  text-align: center;
+}

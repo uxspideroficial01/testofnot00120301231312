@@ -1,0 +1,305 @@
+.sv-crm-activity {
+  padding: 20px 24px;
+}
+
+.sv-crm-activity h3 {
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 18px;
+}
+
+.sv-crm-activity .sv-count {
+  float: none;
+  margin-left: 10px;
+}
+
+.sv-crm-activity form {
+  margin: 15px 0;
+  display: flex;
+  gap: 10px;
+}
+
+.sv-crm-activity textarea {
+  border: 1px dashed #dfe3ea;
+  padding: 10px;
+  min-height: 48px;
+  flex: 1;
+  border-radius: 6px;
+  resize: vertical;
+  font: inherit;
+  font-size: 13px;
+}
+
+.sv-crm-right {
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.sv-crm-tasks-heading {
+  min-height: 41px;
+  height: 41px;
+  flex-shrink: 0;
+  border: 0;
+  border-bottom: 1px solid #edf0f3;
+  background: #fff;
+  padding: 0 24px;
+  box-shadow: 0 2px 5px #151a1e0a;
+  font: inherit;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #303846;
+}
+
+.sv-crm-tasks-heading svg {
+  color: #939aa3;
+}
+
+.sv-crm-task-empty {
+  font-size: 13px;
+  padding: 12px 24px;
+  border-bottom: 1px solid var(--line);
+  color: #818895;
+}
+
+.sv-crm-activity-scroll {
+  padding: 16px 20px 16px 24px;
+  overflow-y: auto;
+  min-height: 0;
+  scrollbar-width: thin;
+  scrollbar-color: #dfe6ee transparent;
+}
+
+.sv-crm-activity-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.sv-crm-activity-tabs button {
+  padding: 3px 10px;
+  border: 1px solid #e1e3e8;
+  border-radius: 5px;
+  background: #fff;
+  font: inherit;
+  font-size: 12px;
+  color: #0f172a;
+  min-height: 25px;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.sv-crm-activity-tabs button.active {
+  background: #bfb7fb;
+  border-color: #d5d0fc;
+}
+
+.sv-crm-compose-trigger {
+  width: 100%;
+  min-height: 38px;
+  background: #fff;
+  border: 1px dashed #e4e7ee;
+  border-radius: 5px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 8px;
+  align-items: center;
+  color: #727b89;
+  padding: 7px 12px;
+  font: inherit;
+  margin-bottom: 6px;
+}
+
+.sv-crm-summary {
+  border: 1px solid #e0e3eb;
+  border-radius: 5px;
+  padding: 12px;
+  background: #f9f9fc;
+  margin: 6px 0 12px;
+  font-size: 14px;
+}
+
+.sv-crm-summary header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sv-crm-summary button {
+  border: 0;
+  background: transparent;
+  font: inherit;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+}
+
+.sv-crm-summary header > button:first-child {
+  font-weight: 500;
+  color: #171d29;
+}
+
+.sv-crm-summary header > button:first-child svg:nth-child(2) {
+  color: #6d5ae5;
+}
+
+.sv-crm-summary header > button:last-child {
+  font-size: 12px;
+  color: #687282;
+}
+
+.sv-crm-summary p {
+  color: #737b87;
+  margin: 7px 0 0;
+  line-height: 20px;
+}
+
+.sv-crm-timeline {
+  position: relative;
+}
+
+.sv-crm-timeline::before {
+  content: "";
+  position: absolute;
+  left: 13px;
+  top: 14px;
+  bottom: 15px;
+  width: 1px;
+  background: #e5e7eb;
+}
+
+.sv-crm-event {
+  display: grid;
+  grid-template-columns: 27px 1fr 45px;
+  align-items: start;
+  gap: 5px;
+  padding: 8px 6px 8px 0;
+  position: relative;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.sv-crm-event p {
+  margin: 0;
+  color: #777d88;
+}
+
+.sv-crm-event strong {
+  font-weight: 500;
+  color: #1e2430;
+}
+
+.sv-crm-event b {
+  font-weight: 400;
+  color: #10151b;
+}
+
+.sv-crm-event time {
+  text-align: right;
+  color: #747b86;
+  font-size: 12px;
+}
+
+.sv-crm-event i {
+  width: 6px;
+  height: 6px;
+  background: #6b727b;
+  border-radius: 50%;
+  margin: 7px 0 0 10px;
+}
+
+.sv-crm-event-icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: #f29a00;
+  margin-left: 5px;
+}
+
+.sv-crm-event-icon.blue {
+  background: #397fea;
+}
+
+.sv-crm-note {
+  position: relative;
+  border: 1px solid #e5e7eb;
+  border-radius: 5px;
+  background: #fff;
+  padding: 10px 16px;
+  margin: 8px 0;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.sv-crm-note header {
+  color: #a1a7b0;
+  font-size: 12px;
+  margin-bottom: 12px;
+  padding-left: 16px;
+}
+
+.sv-crm-note header small {
+  float: right;
+  color: #7c8390;
+  font-size: 11px;
+}
+
+.sv-crm-note p {
+  margin: 12px 0;
+}
+
+.sv-crm-note p + p {
+  margin-top: 30px;
+}
+
+.sv-crm-note blockquote {
+  margin: 4px -4px 0;
+  background: #f8f9fb;
+  padding: 10px 12px;
+  color: #687282;
+  font-size: 12px;
+  border: 1px solid #e5e8ed;
+  border-radius: 5px;
+}
+
+.sv-crm-note blockquote .sv-link {
+  margin-top: 8px;
+  font-size: 11px;
+}
+
+.sv-crm-note blockquote.expanded {
+  min-height: 180px;
+}
+
+.sv-crm-compose {
+  border: 1px solid var(--line);
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 8px;
+}
+
+.sv-crm-compose textarea,
+.sv-crm-compose input {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 8px;
+  font: inherit;
+  margin-bottom: 8px;
+}
+
+.sv-crm-compose textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.sv-crm-compose > div {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}

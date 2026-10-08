@@ -1,0 +1,25 @@
+export const initialLinkNames = [
+  "New scheduling link",
+  "Private Tutoring Scheduling Link",
+  "New scheduling link",
+  "Recurring test link",
+  "New scheduling link",
+  "New scheduling link",
+  "New scheduling link",
+  "Schedule w/ Salman",
+  "New scheduling link",
+  "New scheduling link",
+];
+export const availabilityStaff = [
+  "Steve Wang Staff",
+  "Cory Zhou",
+  "Cory Zhou Instructor 3",
+  "Zach Nicius",
+  "Hassan Instructor",
+  "Valeria Ruiz",
+  "Nairo Quintana",
+  "Nairo Quintana",
+  "Nairo Quintana",
+  "Artemy Staff",
+  "Anna Alworth",
+];

@@ -1,0 +1,70 @@
+.calendar-event {
+  position: absolute;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0;
+  text-align: left;
+  padding: 6px 6px 4px;
+  border: 0;
+  border-left: 3px solid #b8c5e7;
+  border-radius: 4px;
+  line-height: 15px;
+  font-size: 12px;
+  white-space: normal;
+}
+.calendar-event strong {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+  font-weight: 600;
+}
+.calendar-event > span {
+  max-width: 100%;
+  overflow: hidden;
+}
+.event-purple {
+  background: #e3dcff;
+  color: #362983;
+  border-color: #d0c2ff;
+}
+.event-blue {
+  background: #d8effa;
+  color: #27698f;
+  border-color: #bee6f7;
+}
+.event-pink {
+  background: #ffdeeb;
+  color: #982449;
+  border-color: #f3bad1;
+}
+.event-rose {
+  background: #f9ddfc;
+  color: #80318b;
+  border-color: #f3c7f8;
+}
+.event-gray {
+  background: #eeeeed;
+  color: #555;
+  border-color: #aaa;
+}
+.event-cancelled strong,
+.event-cancelled > span {
+  text-decoration: line-through;
+}
+.calendar-event .cancel-mark {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  background: #e5b32b;
+  border: 1px solid white;
+  color: white;
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+  padding: 1px;
+}

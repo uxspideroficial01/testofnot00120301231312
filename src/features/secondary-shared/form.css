@@ -1,0 +1,15 @@
+.sv-form {
+  max-width: 600px;
+  padding: 24px;
+}
+
+.sv-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.sv-form-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}

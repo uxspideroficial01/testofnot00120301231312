@@ -1,0 +1,57 @@
+.pp-filter-tabs {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 8px;
+}
+.pp-filter-tabs button {
+  height: 24px;
+  padding: 2px 10px;
+  border: 1px solid #e3e5e9;
+  border-radius: 5px;
+  background: white;
+  font-size: 12px;
+}
+.pp-filter-tabs button.selected {
+  background: #c6bdfa;
+}
+.pp-new-activity {
+  display: flex;
+  width: 100%;
+  height: 38px;
+  border: 1px dashed #e3e5e9;
+  background: white;
+  border-radius: 5px;
+  color: #657082;
+  justify-content: flex-start;
+  padding: 10px 12px;
+  margin-bottom: 6px;
+}
+.pp-activity-log > div {
+  height: 36px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 12px 0 5px;
+}
+.pp-activity-log p {
+  color: #666b75;
+}
+.pp-activity-log strong {
+  color: #111723;
+  font-weight: 500;
+}
+.pp-activity-log time {
+  margin-left: auto;
+  color: #6c7078;
+  font-size: 12px;
+}
+.pp-eye {
+  width: 18px;
+  height: 18px;
+  background: #f09600;
+  color: white;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}

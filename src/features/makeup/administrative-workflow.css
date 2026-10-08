@@ -1,0 +1,100 @@
+/* Administrative makeup workflow, using the existing workspace controls. */
+.family-context {
+  color: var(--muted);
+  font-size: 12px;
+  white-space: nowrap;
+}
+.makeup-detail-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.modal:has(.makeup-issue-form) {
+  width: 512px;
+  padding: 24px;
+}
+.modal:has(.makeup-issue-form) .overlay-close {
+  top: -12px;
+  right: -12px;
+  border: 0;
+  width: 20px;
+  height: 20px;
+}
+.makeup-issue-form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+}
+.makeup-issue-form input {
+  height: 32px;
+  padding: 5px 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font: inherit;
+  min-width: 0;
+}
+.makeup-issue-form .btn {
+  margin-top: 30px;
+  width: 100%;
+  justify-content: center;
+}
+.filter-popover .search-field {
+  width: 100%;
+  min-width: 0;
+}
+@media (max-width: 1000px) {
+  .family-context {
+    display: none;
+  }
+}
+.session-heading h2:focus {
+  outline: none;
+}
+.makeup-review .makeup-origin {
+  margin: 12px 20px;
+  padding: 10px 12px;
+  gap: 7px;
+}
+.makeup-review .origin-caption {
+  padding-top: 7px;
+}
+.makeup-review .makeup-content {
+  padding-bottom: 12px;
+}
+.makeup-review .makeup-content h3 {
+  margin: 0 0 6px;
+}
+.makeup-review .subtle-copy {
+  margin: 0 0 10px !important;
+}
+.makeup-review .review-date {
+  padding: 10px 12px;
+  margin-bottom: 12px;
+}
+.makeup-review .review-date > div {
+  gap: 4px;
+}
+.makeup-review .review-fields {
+  gap: 9px 12px;
+}
+.makeup-review .inline-note {
+  margin-top: 10px;
+}
+.makeup-review .family-day {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.makeup-review .family-day .section-label-row {
+  margin-bottom: 8px;
+}
+.makeup-review .family-agenda-row {
+  padding: 6px 8px;
+}
+.makeup-review .family-location {
+  padding-top: 8px;
+}
+.makeup-review .detail-section:has(.notification-checkbox) {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}

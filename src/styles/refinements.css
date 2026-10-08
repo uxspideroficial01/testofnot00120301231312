@@ -1,0 +1,102 @@
+/* Source-matched shell details, measured at 1437 × 734. */
+.ai-assistant {
+  flex-shrink: 0;
+  height: 53px;
+  border-top: 1px solid var(--line);
+  border-radius: 0;
+  padding-left: 20px;
+}
+.nav-item > svg {
+  width: 16px;
+  height: 16px;
+}
+.nav-meta > svg {
+  width: 12px;
+  height: 12px;
+}
+.count-badge {
+  margin-right: 0;
+  color: #d69700;
+  border-color: #fde5a2;
+  background: #fffbeb;
+}
+.sort-button {
+  padding: 0;
+  gap: 0;
+  width: 150px;
+}
+.sort-button > svg {
+  width: 33px;
+  height: 30px;
+  padding: 8px;
+  border-right: 1px solid var(--line);
+}
+.sort-button > span {
+  padding: 6px 9px;
+}
+.sort-button strong {
+  margin-left: 4px;
+  font-weight: 500;
+}
+.occurred-dot {
+  fill: #00c950;
+  color: #fff;
+  stroke-width: 2;
+}
+.pending-dot {
+  fill: #6b7280;
+}
+.staff-section > .filter-section-heading input:checked {
+  background: #fff;
+  border-color: var(--line);
+}
+.staff-section > .filter-section-heading input:checked:after {
+  border-color: var(--text);
+}
+.staff-list .avatar {
+  width: 20px;
+  height: 20px;
+  color: #425cc5;
+}
+.staff-list .avatar.purple {
+  background: #e5e7ff;
+}
+.staff-list .avatar.blue {
+  background: #dcf1ff;
+}
+.staff-list .avatar.gray {
+  background: #e0e2ff;
+}
+.available-column {
+  background: linear-gradient(to right, #fff 0, #fff 104px, #f7f7f7 104px);
+}
+.available-column .hour-line {
+  margin-left: 104px;
+}
+
+.staff-list label > span:not(.avatar) {
+  margin-left: -4px;
+}
+.staff-list .avatar.cyan {
+  background: #ecfcff;
+}
+.staff-list .avatar.orange {
+  background: #fff3e8;
+}
+.calendar-header {
+  padding-right: 13px;
+}
+.header-actions > .btn:nth-last-child(2) {
+  width: 66px;
+}
+.header-actions > .btn-primary {
+  width: 146px;
+  gap: 4px;
+  padding: 6px;
+}
+.profile > .nav-label {
+  transform: translateY(4px);
+}
+.table-toolbar .filter-anchor > .btn {
+  width: 72px;
+}

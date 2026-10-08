@@ -1,0 +1,62 @@
+.pp-tabs {
+  display: inline-flex;
+  margin-top: 21px;
+  background: #f2f3f5;
+  border-radius: 5px;
+  padding: 4px;
+  height: 36px;
+}
+.pp-tabs button {
+  height: 28px;
+  padding: 4px 8px;
+  background: none;
+  color: #616b7b;
+  border: 0;
+  border-radius: 3px;
+  gap: 8px;
+  white-space: nowrap;
+}
+.pp-tabs button.selected {
+  color: #080e19;
+  background: #fff;
+  box-shadow: 0 1px 3px #0000000a;
+}
+.pp-tabs b {
+  font-size: 12px;
+  border-radius: 20px;
+  padding: 0 7px;
+  color: #111827;
+  background: #f4f5f7;
+  font-weight: 600;
+}
+.pp-tab-content {
+  margin-top: 20px;
+}
+.pp-staff-profile .pp-tab-content {
+  margin-top: 16px;
+}
+.pp-line-tabs {
+  display: flex;
+  gap: 20px;
+  height: 33px;
+  margin-bottom: 16px;
+}
+.pp-line-tabs button {
+  padding: 0 0 8px;
+  position: relative;
+  border: 0;
+  background: none;
+  color: #596576;
+}
+.pp-line-tabs button.active {
+  color: #070b12;
+}
+.pp-line-tabs button.active::after {
+  content: "";
+  height: 2px;
+  background: #7161f7;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

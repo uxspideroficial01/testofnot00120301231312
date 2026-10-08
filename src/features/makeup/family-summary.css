@@ -1,0 +1,44 @@
+.family-member-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.family-member-list > div {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 13px;
+}
+.family-member-list > div > .muted {
+  margin-left: auto;
+  font-size: 12px;
+}
+.guardian-line {
+  display: flex;
+  font-size: 12px;
+  justify-content: space-between;
+  padding-top: 17px;
+  margin-top: 16px;
+  border-top: 1px solid #edf0f4;
+}
+.subtle-copy {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--muted);
+  margin: 7px 0 15px !important;
+}
+.existing-makeup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+}
+.existing-makeup > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+}
+.existing-makeup > svg:last-child {
+  color: #5a916f;
+}

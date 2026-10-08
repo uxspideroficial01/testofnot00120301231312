@@ -1,0 +1,224 @@
+.official-dialog > h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+}
+.official-dialog .official-danger-text {
+  color: #be123c;
+}
+.official-modal-intro {
+  margin: 6px 0 8px;
+}
+.official-modal-subtitle {
+  color: #667080;
+  font-size: 14px;
+  line-height: 20px;
+  margin: 14px 0 24px;
+}
+.official-enrollment .official-modal-subtitle {
+  font-size: 12px;
+  margin: 4px 0 12px;
+}
+.official-dialog footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 24px;
+}
+.official-radio-list {
+  display: grid;
+  gap: 10px;
+}
+.official-radio-list label {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 18px;
+  cursor: pointer;
+}
+.official-radio-list input {
+  appearance: none;
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  margin: 1px 0 0;
+  border-radius: 50%;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+}
+.official-radio-list input:checked {
+  background: radial-gradient(circle, #6559f5 0 4px, transparent 4.5px);
+}
+.official-radio-list small {
+  display: block;
+  font-size: 12px;
+  color: #6b7280;
+  line-height: 15px;
+}
+.official-disabled-option {
+  color: #9ca3af;
+}
+.official-disabled-option input {
+  opacity: 0.4;
+}
+.official-disabled-option small {
+  color: #e65a72;
+}
+.official-remove-options {
+  gap: 12px;
+}
+.official-enrollment footer {
+  border-top: 1px solid #f1f1f1;
+  margin-top: 38px;
+  padding-top: 16px;
+}
+.official-field-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 14px 0 4px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.official-field-label svg {
+  color: #64748b;
+}
+.official-select {
+  width: 100%;
+  height: 30px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 8px;
+  font-size: 14px;
+}
+.official-select svg {
+  color: #71717a;
+}
+.official-member-picker {
+  position: relative;
+}
+.official-member-results {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 4px);
+  width: 260px;
+  z-index: 4;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  box-shadow: 0 3px 6px #00000022;
+  overflow: hidden;
+}
+.official-member-results > label {
+  display: flex;
+  gap: 8px;
+  padding: 10px 12px;
+  align-items: center;
+  border-bottom: 1px solid #e5e7eb;
+  color: #6b7280;
+}
+.official-member-results input {
+  border: 0;
+  padding: 0;
+  min-width: 0;
+  width: 100%;
+  font-size: 14px;
+}
+.official-member-results > div {
+  min-height: 48px;
+  max-height: 180px;
+  overflow: auto;
+  padding: 4px;
+}
+.official-member-results button {
+  width: 100%;
+  background: #fff;
+  padding: 8px;
+  border: 0;
+  justify-content: flex-start;
+  border-radius: 4px;
+}
+.official-member-results button:hover {
+  background: #f1f5f9;
+}
+.official-member-results small {
+  padding: 8px;
+  color: #64748b;
+  display: block;
+}
+.official-email-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+.official-email-option + .official-email-option {
+  margin-top: 8px;
+}
+.official-editor-field {
+  display: grid;
+  gap: 6px;
+  margin-top: 16px;
+}
+.official-editor-field input,
+.official-editor-field textarea,
+.official-note-editor {
+  border: 1px solid #e5e7eb;
+  border-radius: 5px;
+  background: #fff;
+  padding: 7px 10px;
+  min-width: 0;
+  width: 100%;
+}
+.official-note-editor {
+  margin-top: 20px;
+  resize: vertical;
+}
+.official-toast {
+  position: fixed;
+  width: 388px;
+  max-width: calc(100vw - 28px);
+  right: 14px;
+  bottom: 13px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 24px;
+  background: #fff;
+  box-shadow: 0 4px 8px #00000022;
+  z-index: 20;
+}
+.official-toast strong {
+  font-weight: 600;
+}
+.official-toast p {
+  margin: 4px 0 0;
+}
+@media (max-width: 600px) {
+  .official-drawer {
+    width: 100vw;
+  }
+  .official-metadata > div {
+    grid-template-columns: 96px 1fr;
+  }
+  .official-time {
+    grid-template-columns: 1fr 22px 1fr 24px;
+  }
+  .official-instructor > .official-label {
+    width: 88px;
+  }
+  .official-roster-actions {
+    gap: 4px;
+  }
+  .official-roster-actions .official-button {
+    font-size: 12px;
+  }
+  .official-note-shortcut {
+    display: none;
+  }
+}

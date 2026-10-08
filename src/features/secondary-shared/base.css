@@ -1,0 +1,270 @@
+.sv-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  height: 100%;
+  background: #fff;
+  color: #171922;
+  font-size: 14px;
+}
+
+.sv-page button,
+.sv-page input,
+.sv-page select,
+.sv-page textarea,
+.sv-email button,
+.sv-inbox button {
+  font: inherit;
+}
+
+.sv-toolbar {
+  min-height: 52px;
+  padding: 9px 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid #e0e4e9;
+  flex-shrink: 0;
+}
+
+.sv-spacer {
+  flex: 1;
+}
+
+.sv-right {
+  justify-content: flex-end;
+}
+
+.sv-no-border {
+  border: 0;
+}
+
+.sv-link {
+  color: #7b68e9;
+  border: 0;
+  background: none;
+  padding: 0;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.sv-link:hover {
+  text-decoration: underline;
+}
+
+.sv-text-button {
+  color: #161923;
+  background: none;
+  border: 0;
+  font: inherit;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  font-weight: 500;
+}
+
+.sv-muted {
+  color: #828690;
+}
+
+.sv-pill {
+  background: #f1f2f5;
+  border-radius: 24px;
+  display: inline-block;
+  padding: 3px 9px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: normal;
+  line-height: 15px;
+}
+
+.sv-tag {
+  display: inline-block;
+  background: #e3fbfc;
+  border-radius: 3px;
+  padding: 3px 8px;
+  white-space: normal;
+  color: #202632;
+  line-height: 16px;
+  font-size: 12px;
+}
+
+.sv-tag-pink,
+.sv-tag-1 {
+  background: #f8caed;
+}
+
+.sv-tag-2 {
+  background: #c1ece3;
+}
+
+.sv-tag-3 {
+  background: #f9f0ba;
+}
+
+.sv-tag-0 {
+  background: #e3fbfc;
+}
+
+.sv-empty {
+  padding: 32px;
+  text-align: center;
+  color: #717784;
+  font-size: 14px;
+}
+
+.sv-count {
+  float: right;
+  border: 1px solid #e4e7ed;
+  border-radius: 20px;
+  padding: 3px 8px;
+  font-size: 12px;
+}
+
+.sv-emptybox {
+  padding: 34px 20px;
+  border: 1px dashed #e0e3e8;
+  background: #f8f9fb;
+  border-radius: 7px;
+  text-align: center;
+  color: #848994;
+  margin: 28px 0 20px;
+}
+
+.sv-status {
+  display: inline-block;
+  border: 1px solid #4ddd79;
+  border-radius: 20px;
+  padding: 3px 9px;
+  color: #1fb957;
+  font-size: 12px;
+  background: #fbfff9;
+}
+
+.sv-filter-chip {
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  background: white;
+  font-size: 12px;
+  display: flex;
+  gap: 8px;
+  padding: 3px 7px;
+  cursor: pointer;
+}
+
+.sv-red {
+  color: #cf0d30;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.sv-mini-avatar {
+  display: inline-flex;
+  width: 20px;
+  height: 20px;
+  background: #edf6ff;
+  color: #7b8bba;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  flex-shrink: 0;
+}
+
+.sv-padded {
+  padding: 16px 20px 0;
+}
+
+.sv-padded > .sv-toolbar {
+  padding-left: 0;
+  padding-right: 0;
+  margin: 6px 0;
+}
+
+.sv-notice {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid #dfe4e9;
+  border-radius: 7px;
+  padding: 15px 16px;
+  font-size: 14px;
+  min-height: 53px;
+}
+
+.sv-dot {
+  display: inline-block;
+  background: #8be16e;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.sv-gray {
+  background: #a0a0a0;
+}
+
+.sv-select {
+  border: 1px solid #dfe4e9;
+  background: white;
+  border-radius: 6px;
+  padding: 5px 9px;
+  min-width: 118px;
+  font: inherit;
+  font-size: 16px;
+}
+
+.sv-dl-row {
+  display: contents;
+}
+
+.sv-crm-topbar,
+.sv-tasks-topbar {
+  display: flex;
+  height: 50px;
+  min-height: 50px;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px 7px 28px;
+  border-bottom: 1px solid var(--line);
+}
+
+@media (max-width: 1100px) {
+  .sv-availability {
+    grid-template-columns: 330px 1fr;
+  }
+  .sv-email {
+    grid-template-columns: 260px 1fr;
+  }
+  .sv-inbox {
+    grid-template-columns: 34% 43% 23%;
+  }
+  .sv-inbox-contact dl {
+    display: block;
+  }
+  .sv-inbox-contact dt {
+    margin-top: 18px;
+  }
+  .sv-inbox-contact dd {
+    margin-top: 6px;
+  }
+  .sv-toolbar .sv-search {
+    width: 180px;
+  }
+  .sv-templates {
+    padding: 30px 4%;
+  }
+  .sv-detail-grid {
+    grid-template-columns: 1fr 290px;
+  }
+  .sv-days {
+    gap: 3px;
+  }
+  .sv-days button {
+    padding: 7px 5px;
+    min-width: 32px;
+  }
+}

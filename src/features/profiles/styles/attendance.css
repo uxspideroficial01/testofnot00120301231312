@@ -1,0 +1,47 @@
+.pp-attendance {
+  display: grid;
+  gap: 16px;
+}
+.pp-attendance-row {
+  width: 100%;
+  border: 1px solid #e3e5e9;
+  background: white;
+  border-radius: 8px;
+  padding: 9px 12px;
+  height: 46px;
+  gap: 8px;
+  text-align: left;
+}
+.pp-attendance-row > svg {
+  color: #8b9095;
+  margin-right: 16px;
+  transition: transform 0.12s;
+}
+.pp-attendance-row > svg.rotated {
+  transform: rotate(180deg);
+}
+.pp-attendance-row strong {
+  font-weight: 500;
+}
+.pp-attendance-row > span:last-child {
+  color: #666b74;
+  margin-left: auto;
+  white-space: nowrap;
+}
+.pp-attendance-expanded {
+  border: 1px solid #e3e5e9;
+  border-top: 0;
+  border-radius: 0 0 8px 8px;
+  padding: 12px;
+}
+.pp-attendance-expanded > div,
+.pp-attendance-expanded > button {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  width: 100%;
+  text-align: left;
+  padding: 8px;
+}
+.pp-attendance-expanded > div {
+  color: #6b7280;
+}

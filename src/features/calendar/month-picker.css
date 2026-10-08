@@ -1,0 +1,91 @@
+/* Calendar geometry is measured at half the 2878 × 1472 source frame. */
+.calendar-layout {
+  display: flex;
+  min-width: 0;
+  height: 100%;
+  overflow: hidden;
+}
+.calendar-filters {
+  width: 280px;
+  min-width: 280px;
+  border-right: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.mini-month-title {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px 0 20px;
+  flex-shrink: 0;
+}
+.mini-month-title > strong {
+  font-size: 14px;
+  font-weight: 500;
+}
+.mini-month-title > div {
+  display: flex;
+  gap: 5px;
+}
+.mini-month-title .icon-button {
+  color: #7e8490;
+}
+.mini-calendar {
+  padding: 0 16px 11px;
+  border-bottom: 1px solid var(--line);
+  flex-shrink: 0;
+}
+.week-labels,
+.month-days {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  text-align: center;
+  align-items: center;
+}
+.week-labels {
+  height: 30px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.month-days {
+  grid-auto-rows: 40px;
+}
+.month-days button {
+  border: 0;
+  background: none;
+  width: 36px;
+  height: 32px;
+  border-radius: 6px;
+  justify-self: center;
+  font-size: 14px;
+}
+.month-days button:hover {
+  background: #f1efff;
+}
+.month-days button.current {
+  background: var(--accent);
+  color: white;
+}
+.month-days button.today:not(.current) {
+  box-shadow: inset 0 0 0 1px var(--accent);
+  color: var(--accent);
+}
+.recorded-calendar-event {
+  background: #e7e5ff;
+  color: #312e81;
+  border-left-color: #cbc6ff;
+  border-radius: 3px;
+  padding: 5px 6px;
+  line-height: 15px;
+}
+.recorded-calendar-event .calendar-attendee {
+  font-size: 11px;
+  line-height: 14px;
+}
+.calendar-unavailable {
+  position: absolute;
+  pointer-events: none;
+  background: #faf5d9;
+}

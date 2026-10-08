@@ -1,0 +1,24 @@
+@media (max-width: 1200px) {
+  .pp-body {
+    grid-template-columns: minmax(0, 1fr) 320px;
+  }
+  .pp-field {
+    grid-template-columns: 100px minmax(0, 1fr);
+  }
+  .pp-availability-columns {
+    grid-template-columns: 1fr;
+  }
+  .pp-enrollment-heading {
+    gap: 8px;
+  }
+  .pp-last-attended {
+    width: 65px;
+  }
+  .pp-days {
+    gap: 3px;
+  }
+  .pp-attendance-row > span:last-child {
+    font-size: 12px;
+    white-space: normal;
+  }
+}

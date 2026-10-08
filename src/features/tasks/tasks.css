@@ -1,0 +1,132 @@
+.sv-tasks td {
+  padding: 10px 13px;
+  height: 41px;
+}
+
+.sv-tasks th {
+  padding: 10px 13px;
+}
+
+.sv-tasks td:first-child {
+  width: 40px;
+  padding-left: 20px;
+  padding-right: 0;
+}
+
+.sv-overdue td {
+  background: #fdf0f2 !important;
+  color: #a30e30;
+  height: 29px;
+  padding: 4px 20px;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.sv-overdue span {
+  margin-left: 75px;
+  color: #848896;
+  font-weight: 400;
+}
+
+.sv-task-check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #d0d3d8;
+  background: #fff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  color: #6556ec;
+  padding: 0;
+  cursor: pointer;
+}
+
+.sv-assignee {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 7px 3px 3px;
+  border: 1px solid #e3e5ea;
+  border-radius: 30px;
+  white-space: nowrap;
+  font-size: 12px;
+}
+
+.sv-complete {
+  text-decoration: line-through;
+  color: #989da7;
+}
+
+.sv-tasks-topbar {
+  padding-left: 20px;
+}
+
+.sv-tasks-topbar h1 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.sv-tasks-topbar .sv-search {
+  width: 200px;
+}
+
+.sv-tasks-topbar .sv-button {
+  font-size: 13px;
+}
+
+.sv-tasks-page > .sv-toolbar {
+  height: 53px;
+  min-height: 53px;
+  padding: 8px 16px 8px 20px;
+}
+
+.sv-tasks-page .sv-tabs {
+  height: 36px;
+}
+
+.sv-tasks-page .sv-tabs button {
+  font-size: 14px;
+  padding: 6px 11px;
+}
+
+.sv-tasks-page .sv-tabs small {
+  margin-left: 12px;
+}
+
+.sv-tasks-page .sv-clear-task-filter {
+  color: #151922;
+  font-size: 14px;
+  padding: 5px 8px;
+}
+
+.sv-tasks-empty > .sv-table-scroll {
+  flex: 0 0 auto;
+  overflow: visible;
+}
+
+.sv-tasks-empty .sv-empty {
+  height: 99px;
+  padding: 38px 20px;
+  color: #121720;
+}
+
+.sv-tasks-empty .sv-footer {
+  border-top: 0;
+}
+
+.sv-tasks-page .sv-tasks th:first-child {
+  width: 36px;
+  padding: 0;
+}
+
+.sv-tasks-page .sv-tasks th {
+  font-size: 14px;
+  font-weight: 400;
+  padding-left: 20px;
+}
+
+.sv-tasks-page .sv-tasks {
+  table-layout: auto;
+}

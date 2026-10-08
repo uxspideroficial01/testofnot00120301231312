@@ -1,0 +1,143 @@
+.review-date {
+  padding: 15px 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  display: flex;
+  gap: 11px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.review-date > svg {
+  color: var(--accent);
+}
+.review-date > div {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  font-size: 13px;
+}
+.review-date > div > strong {
+  font-size: 12px;
+}
+.review-date .text-button {
+  font-size: 11px;
+  margin-left: auto;
+}
+.review-fields {
+  display: grid;
+  grid-template-columns: 118px 1fr;
+  gap: 17px 12px;
+  font-size: 12px;
+  margin: 0;
+}
+.review-fields dt {
+  color: var(--muted);
+}
+.review-fields dd {
+  margin: 0;
+}
+.review-fields dd .muted {
+  display: inline-block;
+  font-size: 11px;
+  margin-left: 6px;
+}
+.inline-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  font-size: 11px;
+  color: #737986;
+  line-height: 1.5;
+  margin-top: 20px;
+}
+.inline-note > svg {
+  color: #878d98;
+}
+.notification-checkbox {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.notification-checkbox > div {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  font-size: 12px;
+}
+.notification-checkbox strong {
+  font-weight: 500;
+}
+.notification-checkbox span {
+  font-size: 11px;
+  color: var(--muted);
+}
+.empty-slots {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 24px 15px;
+  font-size: 12px;
+  gap: 12px;
+  color: var(--muted);
+}
+.empty-slots strong {
+  color: var(--text);
+  font-size: 13px;
+}
+.form-error {
+  margin: 0 20px 20px;
+  background: #fff3f0;
+  border: 1px solid #f4d5ca;
+  padding: 12px;
+  color: #a44230;
+  font-size: 12px;
+  border-radius: 5px;
+}
+.success-heading {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 11px;
+  padding: 32px 20px 28px;
+}
+.success-icon {
+  width: 47px;
+  height: 47px;
+  background: #eff8f0;
+  border: 1px solid #d4e9d7;
+  border-radius: 50%;
+  color: #3b8650;
+  display: grid;
+  place-items: center;
+  margin-bottom: 4px;
+}
+.success-heading h3 {
+  font-size: 19px;
+}
+.success-heading p {
+  font-size: 13px;
+  color: var(--muted);
+}
+.success-heading > strong {
+  font-size: 14px;
+  font-weight: 500;
+}
+.notification-draft {
+  display: flex;
+  gap: 9px;
+  margin-top: 20px;
+  color: var(--muted);
+}
+.notification-draft > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 11px;
+}
+.notification-draft strong {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text);
+}
