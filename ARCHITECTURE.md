@@ -87,6 +87,18 @@ The pure functions in `src/domain/makeup.ts` enforce the demonstration's assumpt
 
 These are tested local invariants, not verified Noto policies and not a database transaction. Timezone conversion, recurrence, travel time, concurrent writes and institution-specific eligibility require separate product and backend work.
 
+## Pay rates feature boundary
+
+`src/features/pay-rates` owns its model, synthetic fixtures, views, form draft and styles. `model.ts` has no React or fixture dependency: it parses exact decimal amounts, formats the selected method and validates assignment identity. `use-pay-rates.ts` owns saved in-memory overrides at workspace level, so navigating away does not lose saved changes. `use-override-draft.ts` owns the uncommitted form. Cancel and Escape never write that draft to the store.
+
+The rate is a discriminated union: an hourly/session amount or a tiered structure reference. A tiered rate may retain a dormant fixed amount for switching methods; it is never formatted or treated as a second active calculation. No payroll engine or precedence hierarchy is implemented. Feature availability belongs to the organization capability fixture rather than staff records.
+
+The same workspace store owns created pay structures. `structure-draft.ts` validates the creation payload independently of React; `CreateStructureDialog` owns its unsaved fields and renders through a portal to avoid nested HTML forms. Its submit event is isolated from the override form. Saving a structure does not assign it or save an override; canceling the parent override does not roll back a separately saved structure. All rate display and assignment validation receive the live structure collection rather than reading fixture constants. Creation fields reproduce the recorded existing flow; tier boundaries and referral-rate semantics are not a payroll implementation. Prototype-only validation assumptions are listed in the README.
+
+`OverrideForm` composes target selection, calculation fields and `OverrideSummary`, which compares the original and proposed rates during editing. `override-targets.ts` distinguishes missing staff links from targets already assigned an override. Both add and edit close after a successful save as part of the proposed interaction redesign. Validation preserves the draft and focuses the invalid target or rate field.
+
+`PayDialog` uses a native modal dialog with focus return without automatic scrolling. After deletion, focus moves to a surviving neighboring action or the staff's Add override button. `use-delete-position.ts` preserves the visible row position even when the live override count changes staff sorting. Model tests cover exact cents, ownership, immutable targets, capability handling and fixture integrity. E2E scenarios exercise identity, keyboard, responsive layout and deletion-position regressions across the rendered workflow.
+
 ## Verification boundaries
 
 TypeScript checks contracts. ESLint and Prettier check configured code conventions. Node tests exercise domain and validation behavior. A Next.js production build verifies the deployable application bundle. Browser review checks the visual states and interaction sequences represented in the demonstration.

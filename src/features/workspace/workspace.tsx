@@ -10,16 +10,22 @@ import { WorkspaceShell } from "./shell";
 import { SessionList } from "./session-list";
 import { useWorkspace } from "./use-workspace";
 import type { WorkspaceProps } from "./types";
+import { PayRatesView } from "@/features/pay-rates/pay-rates-view";
+import { usePayRates } from "@/features/pay-rates/use-pay-rates";
 
 export function Workspace(props: WorkspaceProps) {
   const workspace = useWorkspace(props);
+  const payRates = usePayRates();
   const { view, person, booking, selected, officialSession } = workspace;
   return (
     <WorkspaceShell
       view={view}
       navigate={workspace.navigate}
       setNotice={workspace.setNotice}
-      onReset={workspace.reset}
+      onReset={() => {
+        workspace.reset();
+        payRates.reset();
+      }}
     >
       <main className="main-workspace">
         {person ? (
@@ -32,6 +38,8 @@ export function Workspace(props: WorkspaceProps) {
             sessions={workspace.officialSessions}
             onOpenSession={workspace.openOfficialSession}
           />
+        ) : view === "Payroll" ? (
+          <PayRatesView store={payRates} />
         ) : view === "Calendar" ? (
           <CalendarView
             sessions={workspace.calendarSessions}

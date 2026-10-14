@@ -18,6 +18,7 @@ const VIEWS = new Set([
   "Staff",
   "Services",
   "Group Classes",
+  "Payroll",
 ]);
 
 /** URL input selects a demo screen; it never grants access to a record. */

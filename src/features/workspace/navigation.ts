@@ -37,4 +37,8 @@ export const NAVIGATION_GROUPS: {
       { name: "Group Classes", icon: "layers" },
     ],
   },
+  {
+    label: "Finance",
+    items: [{ name: "Payroll", icon: "banknote" }],
+  },
 ];

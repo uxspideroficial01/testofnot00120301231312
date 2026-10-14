@@ -1,0 +1,50 @@
+.pay-filter-anchor {
+  position: relative;
+}
+.pay-filter-menu {
+  width: 264px;
+  max-height: min(360px, 50dvh);
+}
+.pay-filter-menu .filter-categories > button,
+.pay-filter-menu .filter-value-list > button {
+  align-items: center;
+}
+.pay-filter-menu .filter-value-list button[aria-pressed="true"] {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+.pay-filter-menu .filter-value-list > button > span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.pay-filter-menu .filter-categories svg,
+.pay-filter-menu .filter-value-list svg {
+  flex-shrink: 0;
+}
+.pay-filter-menu .filter-value-list {
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+}
+@container payrates (max-width: 760px) {
+  .pay-filter-menu {
+    left: 0;
+    right: auto;
+    max-width: calc(100cqw - 32px);
+  }
+  .pay-filter-menu .filter-categories > button,
+  .pay-filter-menu .filter-value-list > button,
+  .pay-filter-menu .session-filter-heading button {
+    min-height: 44px;
+  }
+  .pay-filter-menu .session-filter-heading button,
+  .pay-filter-menu .session-filter-search button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .pay-filter-menu input {
+    font-size: 16px;
+  }
+}

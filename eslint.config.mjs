@@ -7,6 +7,7 @@ export default ts.config(
   {
     ignores: [
       ".next/**",
+      ".netlify/**",
       "node_modules/**",
       "next-env.d.ts",
       "playwright-report/**",

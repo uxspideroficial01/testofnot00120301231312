@@ -5,6 +5,14 @@
 import type { IconNode } from "lucide-react";
 
 export const SIDEBAR_ICON_PATHS = {
+  banknote: [
+    [
+      "rect",
+      { x: "2", y: "6", width: "20", height: "12", rx: "2", key: "outline" },
+    ],
+    ["circle", { cx: "12", cy: "12", r: "2", key: "center" }],
+    ["path", { d: "M6 12h.01M18 12h.01", key: "ends" }],
+  ],
   calendar: [
     ["path", { d: "M8 2v4", key: "1cmpym" }],
     ["path", { d: "M16 2v4", key: "4m81vk" }],
