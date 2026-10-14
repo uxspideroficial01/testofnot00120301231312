@@ -1,10 +1,10 @@
-import { PAY_CAPABILITIES } from "./fixtures";
-import type { PayStructure } from "./model";
+import type { PayCapabilities, PayStructure } from "./model";
 import type { PayRatesStore } from "./use-pay-rates";
 import type { OverrideDraft } from "./use-override-draft";
 import { PayStructurePicker } from "./pay-structure-picker";
 
 export function RateFields({
+  capabilities,
   draft,
   structures,
   onCreateStructure,
@@ -12,6 +12,7 @@ export function RateFields({
   error,
   onChange,
 }: {
+  capabilities: PayCapabilities;
   draft: OverrideDraft;
   structures: readonly PayStructure[];
   onCreateStructure: PayRatesStore["createStructure"];
@@ -23,7 +24,7 @@ export function RateFields({
   const methods = [
     { value: "hourly", label: "Hourly rate" },
     { value: "session", label: "Flat per session" },
-    ...(PAY_CAPABILITIES.tieredEnabled || existingTiered
+    ...(capabilities.tieredEnabled || existingTiered
       ? ([{ value: "tiered", label: "Tiered pay" }] as const)
       : []),
   ] as const;
@@ -63,12 +64,12 @@ export function RateFields({
                 draft.setStructureId(id);
                 onChange();
               }}
-              enabled={PAY_CAPABILITIES.tieredEnabled}
+              enabled={capabilities.tieredEnabled}
               error={error}
               describedBy="pay-method-help"
             />
             <p id="pay-method-help" className="pay-field-note">
-              {!PAY_CAPABILITIES.tieredEnabled
+              {!capabilities.tieredEnabled
                 ? "The existing structure is retained. New tiered assignments are disabled in this organization."
                 : (structure?.description ??
                   "Select an existing structure based on accumulated teaching hours.")}

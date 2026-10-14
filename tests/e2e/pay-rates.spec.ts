@@ -28,6 +28,7 @@ test.beforeEach(async ({ page }) => {
 test("column headings sort 150 staff in both directions and preserve expanded rows and search", async ({
   page,
 }) => {
+  await page.goto("/?view=Payroll&payDemo=tiered");
   const headings = page.getByRole("group", { name: "Sort staff pay rates" });
   const rows = page.getByRole("region", { name: / pay rates$/ });
   await staffRates(page, "Emma Wilson")
@@ -494,6 +495,7 @@ test("invalid amounts keep the draft intact, and cancelling an edit leaves the s
 test("replacing a tiered structure preserves the inactive flat rate across saved edits", async ({
   page,
 }) => {
+  await page.goto("/?view=Payroll&payDemo=tiered");
   const staff = staffRates(page, "Marcus Reed");
   await staff
     .getByRole("button", { name: "Expand Marcus Reed", exact: true })
@@ -559,6 +561,7 @@ test("replacing a tiered structure preserves the inactive flat rate across saved
 test("canceling structure creation preserves add and edit drafts", async ({
   page,
 }) => {
+  await page.goto("/?view=Payroll&payDemo=tiered");
   const add = await openAdd(page, "Noah Miller");
   await chooseTarget(add, "Piano Private service");
   await add

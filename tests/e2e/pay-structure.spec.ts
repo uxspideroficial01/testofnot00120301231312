@@ -3,7 +3,7 @@ import { expect, test } from "@playwright/test";
 test("adding and removing tiers keeps keyboard focus on an editable field", async ({
   page,
 }) => {
-  await page.goto("/?view=Payroll");
+  await page.goto("/?view=Payroll&payDemo=tiered");
   await page
     .getByRole("button", { name: "Add override for Noah Miller" })
     .click();
@@ -49,7 +49,7 @@ test("adding and removing tiers keeps keyboard focus on an editable field", asyn
 test("creating a structure and assigning an override are independent saves", async ({
   page,
 }) => {
-  await page.goto("/?view=Payroll");
+  await page.goto("/?view=Payroll&payDemo=tiered");
   await page
     .getByRole("button", { name: "Add override for Noah Miller", exact: true })
     .click();

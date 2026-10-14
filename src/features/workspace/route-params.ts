@@ -32,6 +32,8 @@ export function parseWorkspaceParams(
   const person = typeof params.person === "string" ? params.person.trim() : "";
   const familyId = resolveFamilyId(params.family);
   return {
+    payDemoScenario:
+      params.payDemo === "tiered" ? ("tiered" as const) : ("standard" as const),
     initialView: view,
     initialFamily: familyId === DEMO_FAMILY.id,
     initialFamilyId: familyId,

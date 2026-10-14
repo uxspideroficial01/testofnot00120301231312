@@ -15,7 +15,7 @@ import { usePayRates } from "@/features/pay-rates/use-pay-rates";
 
 export function Workspace(props: WorkspaceProps) {
   const workspace = useWorkspace(props);
-  const payRates = usePayRates();
+  const payRates = usePayRates(props.payDemoScenario);
   const { view, person, booking, selected, officialSession } = workspace;
   return (
     <WorkspaceShell

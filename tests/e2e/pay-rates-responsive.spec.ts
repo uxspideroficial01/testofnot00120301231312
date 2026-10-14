@@ -78,7 +78,7 @@ test("structure creation form fits mobile and returns to the draft", async ({
   page,
 }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto("/?view=Payroll");
+  await page.goto("/?view=Payroll&payDemo=tiered");
   await page
     .getByRole("button", { name: "Add override for Noah Miller", exact: true })
     .click();

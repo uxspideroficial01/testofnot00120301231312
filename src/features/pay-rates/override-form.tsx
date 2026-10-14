@@ -36,6 +36,7 @@ export function OverrideForm({
   const draft = useOverrideDraft(
     existing?.rate ?? staff.defaultRate,
     !!existing,
+    store.capabilities,
   );
   const [kind, setKind] = useState<PayTarget["kind"]>(
     originalTarget?.kind ?? "class-service",
@@ -126,12 +127,12 @@ export function OverrideForm({
                       [
                         "class-service",
                         "Class/Service",
-                        "A group class or private service taught by this staff member.",
+                        "Set a rate for a group class or private service this staff member teaches.",
                       ],
                       [
                         "enrollment",
                         "Enrollment",
-                        "One student's enrollment in a specific service and billing plan.",
+                        "Set a rate for one student's enrollment in a specific service and billing plan.",
                       ],
                     ] as const
                   ).map(([value, label, description]) => (
@@ -183,6 +184,7 @@ export function OverrideForm({
             </>
           )}
           <RateFields
+            capabilities={store.capabilities}
             structures={store.structures}
             onCreateStructure={store.createStructure}
             draft={draft}

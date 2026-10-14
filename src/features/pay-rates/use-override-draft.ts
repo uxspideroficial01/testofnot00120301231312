@@ -1,19 +1,21 @@
 import { useState } from "react";
-import { PAY_CAPABILITIES } from "./fixtures";
 import {
   getFixedRate,
   parseRateAmount,
   type FixedPayRate,
   type PayRate,
+  type PayCapabilities,
 } from "./model";
 
 /** A dialog owns its draft; cancellation never writes to the workspace. */
-export function useOverrideDraft(initialRate: PayRate, editing: boolean) {
+export function useOverrideDraft(
+  initialRate: PayRate,
+  editing: boolean,
+  capabilities: PayCapabilities,
+) {
   const fixed = getFixedRate(initialRate);
   const initialMethod =
-    initialRate.method === "tiered" &&
-    !PAY_CAPABILITIES.tieredEnabled &&
-    !editing
+    initialRate.method === "tiered" && !capabilities.tieredEnabled && !editing
       ? (fixed?.method ?? "hourly")
       : initialRate.method;
   const [method, setMethod] = useState<PayRate["method"]>(initialMethod);

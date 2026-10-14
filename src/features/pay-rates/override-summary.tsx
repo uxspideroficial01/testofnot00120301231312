@@ -19,23 +19,41 @@ export function OverrideSummary({
   previousRate?: PayRate;
   structures: readonly PayStructure[];
 }) {
+  const unchanged =
+    previousRate &&
+    (previousRate.method === "tiered"
+      ? rate.method === "tiered" &&
+        previousRate.structureId === rate.structureId
+      : rate.method !== "tiered" &&
+        previousRate.method === rate.method &&
+        previousRate.cents === rate.cents);
   function label(value: PayRate) {
     return `${formatPayRate(value, structures)}${value.method === "tiered" ? " (tiered pay)" : ""}`;
   }
   return (
     <section className="pay-summary" aria-label="Override summary">
       <span className="pay-context-label">
-        {previousRate ? "Review changes" : "Override summary"}
+        {previousRate
+          ? unchanged
+            ? "Current rate"
+            : "Review changes"
+          : "Override summary"}
       </span>
       {previousRate ? (
         <>
           <p>
             <strong>{staff.name}</strong> · <strong>{target.name}</strong>
           </p>
-          <p>
-            From <strong>{label(previousRate)}</strong> to{" "}
-            <strong>{label(rate)}</strong>.
-          </p>
+          {unchanged ? (
+            <p>
+              <strong>{label(rate)}</strong>
+            </p>
+          ) : (
+            <p>
+              From <strong>{label(previousRate)}</strong> to{" "}
+              <strong>{label(rate)}</strong>.
+            </p>
+          )}
         </>
       ) : (
         <p>

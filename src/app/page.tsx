@@ -6,5 +6,6 @@ export default async function Page({
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const params = await searchParams;
-  return <Workspace {...parseWorkspaceParams(params)} />;
+  const workspace = parseWorkspaceParams(params);
+  return <Workspace key={workspace.payDemoScenario} {...workspace} />;
 }

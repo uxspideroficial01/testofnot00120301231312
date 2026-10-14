@@ -1,10 +1,5 @@
 import { useState } from "react";
-import {
-  PAY_CAPABILITIES,
-  PAY_OVERRIDES,
-  PAY_STAFF,
-  PAY_STRUCTURES,
-} from "./fixtures";
+import { PAY_DEMOS, type PayDemoScenario } from "./demo-scenarios";
 import {
   validateOverride,
   type PayOverride,
@@ -19,13 +14,14 @@ import {
 } from "./structure-draft";
 
 /** Demo state only. No payroll calculation, network calls, or durable storage. */
-export function usePayRates() {
-  const [overrides, setOverrides] = useState<PayOverride[]>(PAY_OVERRIDES);
+export function usePayRates(scenario: PayDemoScenario = "standard") {
+  const demo = PAY_DEMOS[scenario];
+  const [overrides, setOverrides] = useState<PayOverride[]>(demo.overrides);
 
-  const [structures, setStructures] = useState<PayStructure[]>(PAY_STRUCTURES);
+  const [structures, setStructures] = useState<PayStructure[]>(demo.structures);
 
   function createStructure(draft: StructureDraft): StructureCreationResult {
-    if (!PAY_CAPABILITIES.tieredEnabled)
+    if (!demo.capabilities.tieredEnabled)
       return { error: "Tiered pay is not enabled for this organization." };
     const parsed = parseStructureDraft(draft);
     if ("error" in parsed) return parsed;
@@ -41,14 +37,14 @@ export function usePayRates() {
     staffId: string,
     input: { id?: string; targetId: string; rate: PayRate },
   ): string | null {
-    const staff = PAY_STAFF.find((person) => person.id === staffId);
+    const staff = demo.staff.find((person) => person.id === staffId);
     if (!staff) return "This staff member is no longer available.";
     const error = validateOverride(
       staff,
       overrides,
       input,
       structures,
-      PAY_CAPABILITIES,
+      demo.capabilities,
     );
     if (error) return error;
     const next: PayOverride = {
@@ -73,14 +69,16 @@ export function usePayRates() {
   }
 
   return {
+    staff: demo.staff,
+    capabilities: demo.capabilities,
     overrides,
     structures,
     createStructure,
     save,
     remove,
     reset: () => {
-      setOverrides(PAY_OVERRIDES);
-      setStructures(PAY_STRUCTURES);
+      setOverrides(demo.overrides);
+      setStructures(demo.structures);
     },
   };
 }

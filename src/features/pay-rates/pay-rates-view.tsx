@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { CheckCircle2, ChevronDown, Search, X } from "lucide-react";
-import { PAY_STAFF } from "./fixtures";
 import { type PayOverride, type PayStaff } from "./model";
 import { StaffRateRow } from "./staff-rate-row";
 import { OverrideForm } from "./override-form";
@@ -32,7 +31,7 @@ export function PayRatesView({ store }: { store: PayRatesStore }) {
   const [sort, setSort] = useState<StaffSort | null>(null);
   const services = [
     ...new Map(
-      PAY_STAFF.flatMap((staff) =>
+      store.staff.flatMap((staff) =>
         staff.targets
           .filter((target) => target.kind === "class-service")
           .map((target) => [target.serviceId, target.name] as const),
@@ -40,7 +39,7 @@ export function PayRatesView({ store }: { store: PayRatesStore }) {
     ).entries(),
   ];
   const visible = sortStaff(
-    PAY_STAFF.filter(
+    store.staff.filter(
       (staff) =>
         staff.name
           .toLocaleLowerCase()
@@ -134,7 +133,7 @@ export function PayRatesView({ store }: { store: PayRatesStore }) {
             <span className="pay-staff-total">{visible.length} staff</span>
             <div className="pay-toolbar-actions">
               <PayFilters
-                staff={PAY_STAFF}
+                staff={store.staff}
                 services={services.map(([id, name]) => ({ id, name }))}
                 staffId={staffFilter}
                 serviceId={serviceFilter}
@@ -162,7 +161,7 @@ export function PayRatesView({ store }: { store: PayRatesStore }) {
               <span>
                 Filtered by{" "}
                 {staffFilter
-                  ? PAY_STAFF.find((staff) => staff.id === staffFilter)?.name
+                  ? store.staff.find((staff) => staff.id === staffFilter)?.name
                   : ""}
                 {staffFilter && serviceFilter ? " and " : ""}
                 {serviceFilter

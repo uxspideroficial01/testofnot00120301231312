@@ -1,6 +1,8 @@
 import type { Session } from "@/domain/makeup";
+import type { PayDemoScenario } from "@/features/pay-rates/demo-scenarios";
 
 export type WorkspaceProps = {
+  payDemoScenario?: PayDemoScenario;
   initialView?: string;
   initialFamily?: boolean;
   initialFamilyId?: string | null;

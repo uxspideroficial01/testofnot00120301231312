@@ -3,6 +3,22 @@ import test from "node:test";
 import { parseWorkspaceParams } from "./route-params.ts";
 import { DEMO_FAMILIES, DEMO_FAMILY } from "@/demo/families";
 
+test("only the explicit tiered demo link selects the tiered fixture organization", () => {
+  assert.equal(
+    parseWorkspaceParams({ payDemo: "tiered" }).payDemoScenario,
+    "tiered",
+  );
+  for (const payDemo of [
+    undefined,
+    "standard",
+    "true",
+    "unknown",
+    ["tiered", "standard"],
+  ]) {
+    assert.equal(parseWorkspaceParams({ payDemo }).payDemoScenario, "standard");
+  }
+});
+
 test("unknown or repeated view parameters fall back to Calendar", () => {
   for (const view of ["unknown", ["Staff", "Members"], "<script>"]) {
     assert.equal(parseWorkspaceParams({ view }).initialView, "Calendar");
