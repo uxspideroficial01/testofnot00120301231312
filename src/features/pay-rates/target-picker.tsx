@@ -1,4 +1,4 @@
-import { useCallback, useId, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { Check, ChevronDown, Search } from "lucide-react";
 import type { PayTarget } from "./model";
 
@@ -30,6 +30,8 @@ export function TargetPicker({
   const id = useId();
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
+  const root = useRef<HTMLDivElement>(null);
+  const pointerInside = useRef(false);
   const trigger = useRef<HTMLButtonElement>(null);
   const search = useRef<HTMLInputElement>(null);
   const options = useRef<(HTMLButtonElement | null)[]>([]);
@@ -37,6 +39,26 @@ export function TargetPicker({
     search.current = node;
     node?.focus();
   }, []);
+  useEffect(() => {
+    if (!open) return;
+    function dismissOutside(event: PointerEvent) {
+      pointerInside.current =
+        event.target instanceof Node && !!root.current?.contains(event.target);
+      if (!pointerInside.current) setOpen(false);
+    }
+    function releasePointer() {
+      pointerInside.current = false;
+    }
+    document.addEventListener("pointerdown", dismissOutside);
+    document.addEventListener("pointerup", releasePointer);
+    document.addEventListener("pointercancel", releasePointer);
+    return () => {
+      document.removeEventListener("pointerdown", dismissOutside);
+      document.removeEventListener("pointerup", releasePointer);
+      document.removeEventListener("pointercancel", releasePointer);
+      releasePointer();
+    };
+  }, [open]);
   const selected = targets.find((target) => target.id === value);
   const targetNoun =
     label === "Pay structure"
@@ -55,9 +77,17 @@ export function TargetPicker({
   }
   return (
     <div
+      ref={root}
       className="pay-picker"
       onBlur={(event) => {
-        if (!event.currentTarget.contains(event.relatedTarget)) setOpen(false);
+        // Safari can move focus to the dialog during an option's mouse press.
+        // Let the pending click finish; outside presses are handled separately.
+        if (
+          !pointerInside.current &&
+          event.relatedTarget &&
+          !event.currentTarget.contains(event.relatedTarget)
+        )
+          setOpen(false);
       }}
       onKeyDown={(event) => {
         if (event.key === "Escape" && open) {
