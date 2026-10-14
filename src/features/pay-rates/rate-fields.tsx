@@ -1,28 +1,7 @@
-import type { FixedPayRate, PayCapabilities, PayStructure } from "./model";
+import type { PayCapabilities, PayStructure } from "./model";
 import type { PayRatesStore } from "./use-pay-rates";
 import type { OverrideDraft } from "./use-override-draft";
 import { PayStructurePicker } from "./pay-structure-picker";
-
-const exampleAmount = new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "USD",
-  minimumFractionDigits: 2,
-  maximumFractionDigits: 2,
-});
-
-function formatExampleAmount(cents: number): string {
-  return exampleAmount.format(cents / 100).replace(/\.00$/, "");
-}
-
-function hourlyRateHelp(rate: FixedPayRate | null): string {
-  const explanation = "Pay depends on session duration.";
-  if (!rate) return explanation;
-  const hourly = formatExampleAmount(rate.cents);
-  const halfHour = formatExampleAmount(Math.round(rate.cents / 2));
-  // Illustrative only: do not imply an exact payroll rounding rule for half cents.
-  const approximation = rate.cents % 2 ? "about " : "";
-  return `${explanation} For example, ${hourly}/hour pays ${approximation}${halfHour} for 30 minutes.`;
-}
 
 export function RateFields({
   capabilities,
@@ -42,7 +21,6 @@ export function RateFields({
   onChange: () => void;
 }) {
   const structure = structures.find((item) => item.id === draft.structureId);
-  const hourlyRate = draft.rate?.method === "hourly" ? draft.rate : null;
   const methods = [
     { value: "hourly", label: "Hourly rate" },
     { value: "session", label: "Flat per session" },
@@ -114,15 +92,22 @@ export function RateFields({
                   onChange();
                 }}
                 aria-invalid={!!error || undefined}
-                aria-describedby={`pay-method-help${error ? " pay-rate-error" : ""}`}
+                aria-describedby={
+                  [
+                    draft.method === "session" ? "pay-method-help" : undefined,
+                    error ? "pay-rate-error" : undefined,
+                  ]
+                    .filter(Boolean)
+                    .join(" ") || undefined
+                }
               />
               <span>{draft.method === "hourly" ? "/ hour" : "/ session"}</span>
             </div>
-            <p id="pay-method-help" className="pay-field-note">
-              {draft.method === "hourly"
-                ? hourlyRateHelp(hourlyRate)
-                : "The same amount for each session, regardless of duration."}
-            </p>
+            {draft.method === "session" && (
+              <p id="pay-method-help" className="pay-field-note">
+                The same amount for each session, regardless of duration.
+              </p>
+            )}
           </>
         )}
         {error && draft.method !== "tiered" && (
